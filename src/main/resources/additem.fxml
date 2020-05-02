@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Additem">
-
+<AnchorPane prefHeight="900.0" prefWidth="900.0" style="-fx-background-color: #968881;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Additem">
+   <children>
+      <AnchorPane prefHeight="105.0" prefWidth="900.0" style="-fx-background-color: #800000;">
+         <children>
+            <ImageView fitHeight="151.0" fitWidth="326.0" layoutX="58.0" layoutY="-31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="795.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/shopping-bag.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="70.0" layoutX="705.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/order.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="763.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coș de cumpărături" textAlignment="CENTER" wrappingWidth="122.13671875" />
+            <Text layoutX="712.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comenzi" wrappingWidth="59.99999642372131" />
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
