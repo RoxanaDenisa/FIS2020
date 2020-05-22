@@ -28,7 +28,7 @@
       <JFXPasswordField fx:id="loginPassword" layoutX="259.0" layoutY="474.0" prefHeight="31.0" prefWidth="394.0" promptText="Parolă" />
       <JFXTextField fx:id="loginUsername" layoutX="259.0" layoutY="416.0" prefHeight="31.0" prefWidth="394.0" promptText="Nume de utilizator" />
       <JFXButton fx:id="loginButton" layoutX="339.0" layoutY="594.0" prefHeight="52.0" prefWidth="216.0" style="-fx-background-color: #800000;" text="Autentificare" textFill="WHITE" />
-      <JFXButton fx:id="loginSignupButton" layoutX="339.0" layoutY="679.0" prefHeight="52.0" prefWidth="216.0" style="-fx-background-color: #800000;" text="Înregistrare" textFill="WHITE" />
+      <JFXButton fx:id="loginSignupButton" layoutX="339.0" layoutY="679.0" onAction="#mutaIngregistrare" prefHeight="52.0" prefWidth="216.0" style="-fx-background-color: #800000;" text="Înregistrare" textFill="WHITE" />
       <Text layoutX="185.0" layoutY="696.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nu ai încă un cont?" wrappingWidth="418.6708984375" />
       <Text layoutX="179.0" layoutY="723.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Înregistrază-te acum!" />
    </children>
