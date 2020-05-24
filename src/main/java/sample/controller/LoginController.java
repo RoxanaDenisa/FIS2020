@@ -98,13 +98,27 @@ public class LoginController {
             JSONObject x=(JSONObject)jrr.get(i);
             String n=(String) x.get("Nume de utilizator");
             String p=(String) x.get("Parola");
+            boolean cc=(boolean) x.get("Client");
+            boolean cf=(boolean) x.get("Firma");
             if (nume.equals(n)&& parola.equals(p)){
+                if(cc==true)
+                {
                 URL url=new File("src/main/resources/additem.fxml").toURI().toURL();
                 Parent home=FXMLLoader.load(url);
                 Scene s=new Scene(home);
                 Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
                 window.setScene(s);
-                window.show();
+                window.show();}
+                else
+                    if(cf==true)
+                    {
+                        URL url=new File("src/main/resources/furnizor.fxml").toURI().toURL();
+                        Parent home=FXMLLoader.load(url);
+                        Scene s=new Scene(home);
+                        Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
+                        window.setScene(s);
+                        window.show();
+                    }
                 break;
             }
             else{
