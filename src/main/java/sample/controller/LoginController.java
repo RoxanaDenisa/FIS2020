@@ -100,8 +100,8 @@ public class LoginController {
             String p=(String) x.get("Parola");
             if (nume.equals(n)&& parola.equals(p)){
                 //javafx.event.ActionEvent ev;
-                URL url=new File("src/main/resources/additem.fxml").toURI().toURL();
-                Parent home=FXMLLoader.load(url);
+                URL url1=new File("src/main/resources/additem.fxml").toURI().toURL();
+                Parent home=FXMLLoader.load(url1);
                 Scene s=new Scene(home);
                 Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
                 window.setScene(s);
