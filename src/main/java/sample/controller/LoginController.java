@@ -64,56 +64,58 @@ public class LoginController {
         return SB.toString();
     }
     @FXML
-    void initialize() {
-        loginButton.setOnAction(event -> {
-            JSONArray jrr=new JSONArray();
-            Object ob=null;
-            JSONParser jp=new JSONParser();
+    private void apasaAutentificare(javafx.event.ActionEvent ev)throws Exception{
+        JSONArray jrr=new JSONArray();
+        Object ob=null;
+        JSONParser jp=new JSONParser();
 
-            //fetch file
-            try{
-                FileReader file= new FileReader( "UserData.json");
-                ob=jp.parse(file);
-                jrr=(JSONArray)ob;
-                file.close();
+        //fetch file
+        try{
+            FileReader file= new FileReader( "UserData.json");
+            ob=jp.parse(file);
+            jrr=(JSONArray)ob;
+            file.close();
+
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Error occured while fetching");
+
+        }
+        JSONObject obj=new JSONObject();
+
+        int size=jrr.size();
+        obj.put("Nume de utilizator", loginUsername.getText());
+        String pass=loginPassword.getText();
+        try {
+            String hashedpass=hash(pass);
+            obj.put("Parola", hashedpass);
+        } catch (NoSuchAlgorithmException e) {
+        }
+
+        String nume=(String) obj.get("Nume de utilizator");
+        String parola=(String) obj.get("Parola");
+        for (int i=0; i<size; i++){
+            JSONObject x=(JSONObject)jrr.get(i);
+            String n=(String) x.get("Nume de utilizator");
+            String p=(String) x.get("Parola");
+            if (nume.equals(n)&& parola.equals(p)){
+                //javafx.event.ActionEvent ev;
+                URL url=new File("src/main/resources/additem.fxml").toURI().toURL();
+                Parent home=FXMLLoader.load(url);
+                Scene s=new Scene(home);
+                Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
+                window.setScene(s);
+                window.show();
+                break;
+            }
+            else{
+                if (i==size-1){
+                    JOptionPane.showMessageDialog(null,"Password/Username incorrect");}
 
             }
-            catch(Exception e){
-                JOptionPane.showMessageDialog(null,"Error occured while fetching");
 
-            }
-            JSONObject obj=new JSONObject();
+        }
 
-            int size=jrr.size();
-            obj.put("Nume de utilizator", loginUsername.getText());
-            String pass=loginPassword.getText();
-            try {
-                String hashedpass=hash(pass);
-                obj.put("Parola", hashedpass);
-            } catch (NoSuchAlgorithmException e) {
-            }
-
-            String nume=(String) obj.get("Nume de utilizator");
-            String parola=(String) obj.get("Parola");
-            for (int i=0; i<size; i++){
-                JSONObject x=(JSONObject)jrr.get(i);
-                String n=(String) x.get("Nume de utilizator");
-                String p=(String) x.get("Parola");
-                if (nume.equals(n)&& parola.equals(p)){
-                    JOptionPane.showMessageDialog(null,"Password match");
-                    break;
-                }
-                else{
-                    if (i==size-1){
-                        JOptionPane.showMessageDialog(null,"Password/Username incorrect");}
-
-                }
-
-            }
-
-
-
-        });
 
 
 
