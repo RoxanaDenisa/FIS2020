@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdditemController {
+public class ClientController {
     @FXML
     private ResourceBundle resources;
 

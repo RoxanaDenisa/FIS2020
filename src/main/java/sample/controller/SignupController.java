@@ -119,7 +119,7 @@ public class SignupController {
             catch (Exception e){
                 JOptionPane.showMessageDialog(null,"Error occured");
             }
-            JOptionPane.showMessageDialog(null,jrr);
+            JOptionPane.showMessageDialog(null, "Inregistrare reusita");
 
         });
 
