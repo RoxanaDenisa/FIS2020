@@ -8,28 +8,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.LoginController">
    <children>
-      <ImageView fitHeight="900.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="659.0" fitWidth="658.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/ba.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="45.0" layoutX="206.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="45.0" layoutX="159.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/icons8-user-50.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="49.0" fitWidth="40.0" layoutX="209.0" layoutY="469.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="49.0" fitWidth="40.0" layoutX="159.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/icons8-password-1-60.png" />
          </image>
       </ImageView>
-      <JFXPasswordField fx:id="loginPassword" layoutX="259.0" layoutY="474.0" prefHeight="31.0" prefWidth="394.0" promptText="Parolă" />
-      <JFXTextField fx:id="loginUsername" layoutX="259.0" layoutY="416.0" prefHeight="31.0" prefWidth="394.0" promptText="Nume de utilizator" />
-      <JFXButton fx:id="loginButton" layoutX="339.0" layoutY="594.0" prefHeight="52.0" prefWidth="216.0" style="-fx-background-color: #800000;" text="Autentificare" textFill="WHITE" />
-      <JFXButton fx:id="loginSignupButton" layoutX="339.0" layoutY="679.0" onAction="#mutaIngregistrare" prefHeight="52.0" prefWidth="216.0" style="-fx-background-color: #800000;" text="Înregistrare" textFill="WHITE" />
-      <Text layoutX="185.0" layoutY="696.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nu ai încă un cont?" wrappingWidth="418.6708984375" />
-      <Text layoutX="179.0" layoutY="723.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Înregistrază-te acum!" />
+      <JFXPasswordField fx:id="loginPassword" layoutX="213.0" layoutY="368.0" prefHeight="31.0" prefWidth="298.0" promptText="Parolă" />
+      <JFXTextField fx:id="loginUsername" layoutX="209.0" layoutY="310.0" prefHeight="31.0" prefWidth="298.0" promptText="Nume de utilizator" />
+      <JFXButton fx:id="loginButton" layoutX="223.0" layoutY="457.0" prefHeight="40.0" prefWidth="216.0" style="-fx-background-color: #800000;" text="Autentificare" textFill="WHITE" />
+      <JFXButton fx:id="loginSignupButton" layoutX="223.0" layoutY="514.0" onAction="#mutaIngregistrare" prefHeight="40.0" prefWidth="216.0" style="-fx-background-color: #800000;" text="Înregistrare" textFill="WHITE" />
+      <Text layoutX="262.0" layoutY="582.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nu ai încă un cont?" wrappingWidth="139.98045548796654" />
+      <Text layoutX="255.0" layoutY="604.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Înregistrază-te acum!" />
    </children>
 </AnchorPane>
