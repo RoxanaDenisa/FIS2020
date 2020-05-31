@@ -1,18 +1,27 @@
 package sample.controller;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import javax.swing.*;
+import java.io.File;
 import java.io.FileReader;
 import java.net.URL;
 import java.util.ArrayList;
@@ -35,7 +44,7 @@ public class ClientController {
     private TreeTableView<String> clientTableView;
 
     @FXML
-    private TreeTableColumn<String, String> branduri;
+    private TreeTableColumn<Hyperlink, Hyperlink> branduri;
 
 
     @FXML
@@ -43,7 +52,7 @@ public class ClientController {
         JSONArray jrr=new JSONArray();
         Object ob=null;
         JSONParser jp=new JSONParser();
-        ArrayList<TreeItem<String>> firme=new ArrayList<TreeItem<String>>();
+        ArrayList<TreeItem<Hyperlink>> firme=new ArrayList<TreeItem<Hyperlink>>();
 
         //fetch file
         try{
@@ -66,8 +75,26 @@ public class ClientController {
 
                 if(cf==true)
                 {
+                     Image img=new Image("/assets/edit.png");
+                     ImageView iv=new ImageView(img);
+                    Hyperlink link=new Hyperlink(n,iv);
+                    link.setOnAction(e->{
 
-                    TreeItem<String> item=new TreeItem<String>(n);
+                        try {
+                            URL url=new File("src/main/resources/clientps1.fxml").toURI().toURL();
+                            Parent home= null;
+                            home = FXMLLoader.load(url);
+                            Scene s=new Scene(home);
+                            Stage window=(Stage)((Node)e.getSource()).getScene().getWindow();
+                            window.setScene(s);
+                            window.show();
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+
+
+                    });
+                    TreeItem<Hyperlink> item=new TreeItem<Hyperlink>(link);
                     firme.add(item);
                 }
 
@@ -76,10 +103,10 @@ public class ClientController {
             for(TreeItem a:firme){
                 Parent.getChildren().add(a);
             }
-             branduri.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<String,String>, ObservableValue<String>>() {
+             branduri.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Hyperlink,Hyperlink>, ObservableValue<Hyperlink>>() {
                  @Override
-                 public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<String,String> param) {
-                     return new SimpleStringProperty(param.getValue().getValue());
+                 public ObservableValue<Hyperlink> call(TreeTableColumn.CellDataFeatures<Hyperlink,Hyperlink> param) {
+                     return new SimpleObjectProperty<>(param.getValue().getValue());
                  }
              });
              clientTableView.setRoot(Parent);

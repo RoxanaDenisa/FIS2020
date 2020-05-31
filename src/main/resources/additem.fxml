@@ -27,7 +27,7 @@
                         <Image url="@assets/order.png" />
                     </image>
                 </ImageView>
-                <Text layoutX="511.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coș de cumpărături" textAlignment="CENTER" wrappingWidth="125.13671875" />
+                <Text layoutX="529.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coș de cumpărături" textAlignment="CENTER" wrappingWidth="89.13671875" />
                 <Text layoutX="454.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comenzile mele" textAlignment="CENTER" wrappingWidth="75.99999642372131" />
                 <JFXButton fx:id="additemComenziButton" layoutX="452.0" layoutY="35.0" prefHeight="80.0" prefWidth="76.0" text="   " />
                 <JFXButton fx:id="additemCosButton" layoutX="536.0" layoutY="30.0" prefHeight="88.0" prefWidth="76.0" text="  " />

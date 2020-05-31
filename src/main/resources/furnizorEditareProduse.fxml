@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #968881;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.FurnizorProduseController">
+   <children>
+      <AnchorPane prefHeight="105.0" prefWidth="650.0" style="-fx-background-color: #800000;">
+         <children>
+            <ImageView fitHeight="149.0" fitWidth="300.0" layoutY="-38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="55.0" fitWidth="101.0" layoutX="470.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/edit.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="559.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/furnizor.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="457.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificare stoc" textAlignment="CENTER" wrappingWidth="66.0" />
+            <Text layoutX="551.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificare status comenzi" textAlignment="CENTER" wrappingWidth="84.99999606609344" />
+            <JFXButton fx:id="edPrStoc" layoutX="457.0" layoutY="14.0" prefHeight="90.0" prefWidth="75.0" text="   " />
+            <JFXButton fx:id="edPrStatus" layoutX="551.0" layoutY="14.0" prefHeight="90.0" prefWidth="85.0" text="  " />
+         </children>
+      </AnchorPane>
+      <TilePane fx:id="furnizorTP" layoutY="111.0" prefHeight="558.0" prefWidth="650.0" />
+   </children>
+</AnchorPane>
