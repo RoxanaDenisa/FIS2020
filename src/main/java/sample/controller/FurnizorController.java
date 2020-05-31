@@ -11,4 +11,5 @@ public class FurnizorController {
     @FXML
     private JFXButton furnizorStatus;
 
+
 }
