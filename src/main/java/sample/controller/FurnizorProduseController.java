@@ -1,8 +1,6 @@
 package sample.controller;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -21,7 +19,6 @@ import java.util.ResourceBundle;
 
 public class FurnizorProduseController {
 
-    ObservableList list= FXCollections.observableArrayList();
     @FXML
     private ResourceBundle resources;
 
@@ -36,9 +33,9 @@ public class FurnizorProduseController {
 
     @FXML
     private TilePane furnizorTP;
+
     @FXML
     void initialize() {
-
         Image img=new Image("/assets/add.png");
         ImageView iv=new ImageView(img);
         iv.setFitHeight(70);
@@ -47,7 +44,7 @@ public class FurnizorProduseController {
         link.setOnAction(e->{
 
             try {
-                URL url=new File("src/main/resources/clientps1.fxml").toURI().toURL();
+                URL url=new File("src/main/resources/formularAddProdus.fxml").toURI().toURL();
                 Parent home= null;
                 home = FXMLLoader.load(url);
                 Scene s=new Scene(home);
@@ -62,4 +59,6 @@ public class FurnizorProduseController {
         vb.getChildren().add(link);
         furnizorTP.getChildren().add(vb);
     }
+
     }
+
