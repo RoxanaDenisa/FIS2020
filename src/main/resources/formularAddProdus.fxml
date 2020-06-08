@@ -23,7 +23,7 @@
       <JFXTextField fx:id="produsStoc" layoutX="198.0" layoutY="357.0" prefHeight="36.0" prefWidth="267.0" promptText="Stocul disponibil" />
       <JFXTextField fx:id="produsCantitate" layoutX="197.0" layoutY="393.0" prefHeight="36.0" prefWidth="267.0" promptText="Cantitatea " />
       <JFXTextField fx:id="produsPret" layoutX="199.0" layoutY="429.0" prefHeight="36.0" prefWidth="267.0" promptText="Prețul produsului" />
-      <JFXButton fx:id="produsImagine" layoutX="355.0" layoutY="484.0" onAction="#goToSalvareImagine" prefHeight="5.0" prefWidth="116.0" ripplerFill="#793838" style="-fx-background-color: #800000;" text="Incarcă imagine" textAlignment="CENTER" textFill="WHITE">
+      <JFXButton fx:id="produsImagine" layoutX="355.0" layoutY="484.0" onAction="#openFile" prefHeight="5.0" prefWidth="116.0" ripplerFill="#793838" style="-fx-background-color: #800000;" text="Incarcă imagine" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>

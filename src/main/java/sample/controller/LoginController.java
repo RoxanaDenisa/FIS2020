@@ -21,7 +21,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
 public class LoginController {
-
+    public static String retinNume;
     @FXML
     private ResourceBundle resources;
 
@@ -97,6 +97,7 @@ public class LoginController {
         for (int i=0; i<size; i++){
             JSONObject x=(JSONObject)jrr.get(i);
             String n=(String) x.get("Nume de utilizator");
+            retinNume=n;
             String p=(String) x.get("Parola");
             boolean cc=(boolean) x.get("Client");
             boolean cf=(boolean) x.get("Firma");

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #968881;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ClientController">
@@ -33,10 +32,6 @@
                 <JFXButton fx:id="additemCosButton" layoutX="536.0" layoutY="30.0" prefHeight="88.0" prefWidth="76.0" text="  " />
             </children>
         </AnchorPane>
-      <TreeTableView fx:id="clientTableView" layoutX="-1.0" layoutY="119.0" prefHeight="528.0" prefWidth="650.0">
-        <columns>
-          <TreeTableColumn fx:id="branduri" prefWidth="649.0" text="     " />
-        </columns>
-      </TreeTableView>
+      <TilePane fx:id="clientTP" layoutY="122.0" prefHeight="530.0" prefWidth="650.0" />
     </children>
 </AnchorPane>

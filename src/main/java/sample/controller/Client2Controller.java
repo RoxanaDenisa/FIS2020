@@ -22,8 +22,7 @@ public class Client2Controller {
 
     @FXML
     void initialize() {
-        assert clientPs1Comenzi != null : "fx:id=\"clientPs1Comenzi\" was not injected: check your FXML file 'clientps1.fxml'.";
-        assert clientPs1Cos != null : "fx:id=\"clientPs1Cos\" was not injected: check your FXML file 'clientps1.fxml'.";
+
 
     }
 }

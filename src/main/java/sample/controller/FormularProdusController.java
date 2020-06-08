@@ -13,15 +13,24 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.net.URL;
+import java.util.Base64;
 import java.util.ResourceBundle;
 
-public class FormularProdusController {
-
+public class FormularProdusController extends Component {
+    private final JFileChooser openFileChooser;
+    public FormularProdusController() {
+        openFileChooser=new JFileChooser();
+        openFileChooser.setCurrentDirectory(new File("D:\\Img"));
+        openFileChooser.setFileFilter(new FileNameExtensionFilter("Png Images","Png"));
+    }
+    private BufferedImage originalBI;
     @FXML
     private ResourceBundle resources;
 
@@ -63,15 +72,38 @@ public class FormularProdusController {
         window.show();
     }
     @FXML
-    void goToSalvareImagine(ActionEvent event) throws  Exception {
-        URL url=new File("src/main/resources/adaugaImagineProdus.fxml").toURI().toURL();
-        Parent home= FXMLLoader.load(url);
-        Scene s=new Scene(home);
-        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(s);
-        window.show();
-    }
+    void openFile(ActionEvent e){
+        int returnValue=openFileChooser.showOpenDialog(this);
+        if(returnValue== JFileChooser.APPROVE_OPTION){
+            try{
+                originalBI= ImageIO.read(openFileChooser.getSelectedFile());
+                JOptionPane.showMessageDialog(null, "Imagine incarcata");
+            }
+            catch (IOException ex)
+            {
+                JOptionPane.showMessageDialog(null, "Nu s.a putut incarca");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Nu ati selectat niciun fisier");
+        }
 
+    }
+    public static String encoder(String imagePath) {
+        String base64Image = "";
+        File file = new File(imagePath);
+        try (FileInputStream imageInFile = new FileInputStream(file)) {
+            // Reading a Image file from file system
+            byte imageData[] = new byte[(int) file.length()];
+            imageInFile.read(imageData);
+            base64Image = Base64.getEncoder().encodeToString(imageData);
+        } catch (FileNotFoundException e) {
+            System.out.println("Image not found" + e);
+        } catch (IOException ioe) {
+            System.out.println("Exception while reading the Image " + ioe);
+        }
+        return base64Image;
+    }
     @FXML
     void initialize() {
         IncarcaImagineController ic;
@@ -93,7 +125,11 @@ public class FormularProdusController {
             obj.put("Cantitate", produsCantitate.getText());
             obj.put("Pret", produsPret.getText());
             obj.put("Firma",furnizorFirma.getText());
-
+            String img;
+            String x=openFileChooser.getSelectedFile().getAbsolutePath();
+            img=encoder(x);
+            obj.put("Imagine",img);
+            obj.put("Locatie:",x);
             jrr.add(obj);
             try{
                 FileWriter file=new FileWriter("ProductData.json");
