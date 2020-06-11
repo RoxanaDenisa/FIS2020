@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #968881;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.FormularComandaController">
+   <children>
+      <AnchorPane prefHeight="124.0" prefWidth="650.0" style="-fx-background-color: #800000;">
+         <children>
+            <ImageView fitHeight="160.0" fitWidth="309.0" layoutX="167.0" layoutY="-36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <JFXTextField fx:id="npformular" layoutX="122.0" layoutY="196.0" prefHeight="31.0" prefWidth="391.0" promptText="Nume și prenume" />
+      <JFXTextField fx:id="nrtelformular" layoutX="122.0" layoutY="262.0" prefHeight="31.0" prefWidth="391.0" promptText="Număr de telefon" />
+      <JFXTextField fx:id="codformular" layoutX="122.0" layoutY="390.0" prefHeight="31.0" prefWidth="391.0" promptText="Cod poștal" />
+      <JFXTextField fx:id="adresaformular" layoutX="122.0" layoutY="325.0" prefHeight="31.0" prefWidth="391.0" promptText="Adresă" />
+      <JFXButton fx:id="finalizareformular" layoutX="204.0" layoutY="493.0" onAction="#finalizareComanda" prefHeight="55.0" prefWidth="230.0" style="-fx-background-color: #800000;" text="Finalizare comandă" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

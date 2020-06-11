@@ -2,6 +2,10 @@ package sample.controller;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
@@ -9,6 +13,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -16,6 +21,7 @@ import org.json.simple.parser.JSONParser;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
@@ -38,7 +44,25 @@ public class ClientCosCumparaturiController {
 
     @FXML
     private VBox prodBox;
+    @FXML
+    void plasareComanda(javafx.event.ActionEvent ev) throws Exception {
+        URL url = new File("src/main/resources/formularComanda.fxml").toURI().toURL();
+        Parent home = FXMLLoader.load(url);
+        Scene s = new Scene(home);
+        Stage window = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+        window.setScene(s);
+        window.show();
+    }
+    @FXML
+    private void goLivrare(javafx.event.ActionEvent ev) throws Exception{
+        URL url=new File("src/main/resources/informatiiLivrare.fxml").toURI().toURL();
+        Parent home= FXMLLoader.load(url);
+        Scene s=new Scene(home);
+        Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
+        window.setScene(s);
+        window.show();
 
+    }
     @FXML
     void initialize() {
         JSONArray jrr=new JSONArray();

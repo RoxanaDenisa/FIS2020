@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #968881;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.InformatiiLivrareController">
+   <children>
+      <AnchorPane prefHeight="124.0" prefWidth="650.0" style="-fx-background-color: #800000;">
+         <children>
+            <ImageView fitHeight="162.0" fitWidth="283.0" layoutX="184.0" layoutY="-27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Text layoutX="36.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Firma de curierat cu care colaboram este FanCourier." wrappingWidth="613.6708984375">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="36.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nu trimitem comenzi în străinătate." wrappingWidth="542.9023429751396">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="36.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Taxa de livrare este 20 de lei, indiferent de contravaloarea produselor comandate." wrappingWidth="542.90234375">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="37.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Timpul estimat pentru livrarea produselor este 4-6 zile lucrătoare." wrappingWidth="510.5078125">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="72.0" fitWidth="55.0" layoutX="292.0" layoutY="548.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/bk.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="backButton" layoutX="287.0" layoutY="548.0" onAction="#goBack" prefHeight="55.0" prefWidth="65.0" text=" " />
+   </children>
+</AnchorPane>
