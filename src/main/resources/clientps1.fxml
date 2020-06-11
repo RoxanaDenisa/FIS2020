@@ -4,8 +4,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.text.Text?>
-
 
 <AnchorPane prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #968881;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Client2Controller">
    <children>
@@ -29,8 +29,9 @@
             <Text layoutX="464.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comenzile mele" textAlignment="CENTER" wrappingWidth="65.0000085234642" />
             <Text layoutX="542.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coș de cumpărături" textAlignment="CENTER" wrappingWidth="65.00001859664917" />
             <JFXButton fx:id="clientPs1Comenzi" layoutX="455.0" layoutY="29.0" prefHeight="70.0" prefWidth="73.0" text="   " />
-            <JFXButton fx:id="clientPs1Cos" layoutX="544.0" layoutY="22.0" prefHeight="80.0" prefWidth="73.0" text="  " />
+            <JFXButton fx:id="clientPs1Cos" layoutX="544.0" layoutY="22.0" onAction="#goCosCumparaturi" prefHeight="80.0" prefWidth="73.0" text="  " />
          </children>
       </AnchorPane>
+      <TilePane fx:id="client2TP" layoutY="110.0" prefHeight="540.0" prefWidth="650.0" />
    </children>
 </AnchorPane>

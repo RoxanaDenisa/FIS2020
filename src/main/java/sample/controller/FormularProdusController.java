@@ -57,8 +57,7 @@ public class FormularProdusController extends Component {
 
     @FXML
     private JFXButton salvareProdus;
-    @FXML
-    private JFXTextField furnizorFirma;
+
     @FXML
     private JFXButton backButton;
 
@@ -124,7 +123,7 @@ public class FormularProdusController extends Component {
             obj.put("Stoc", produsStoc.getText());
             obj.put("Cantitate", produsCantitate.getText());
             obj.put("Pret", produsPret.getText());
-            obj.put("Firma",furnizorFirma.getText());
+            obj.put("Firma",LoginController.retinNume);
             String img;
             String x=openFileChooser.getSelectedFile().getAbsolutePath();
             img=encoder(x);

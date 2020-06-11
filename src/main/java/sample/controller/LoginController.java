@@ -16,6 +16,7 @@ import org.json.simple.parser.JSONParser;
 import javax.swing.*;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -40,7 +41,18 @@ public class LoginController {
     @FXML
     private JFXButton loginSignupButton;
     JSONArray jrr=new JSONArray();
+    private void initializareCosCumparaturi(){
+        JSONArray jrr=new JSONArray();
+        try{
+            FileWriter file=new FileWriter("cosCumparaturi.json");
+            file.write(jrr.toJSONString());
+            file.close();
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Error occured");
+        }
 
+    }
 
     @FXML
     private void mutaIngregistrare(javafx.event.ActionEvent ev) throws Exception{
@@ -130,7 +142,7 @@ public class LoginController {
 
         }
 
-
+      initializareCosCumparaturi();
 
 
     }

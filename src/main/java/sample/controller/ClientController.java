@@ -7,13 +7,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
-import javafx.scene.control.TreeTableColumn;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -47,8 +47,19 @@ public class ClientController {
     private TilePane clientTP;
 
     @FXML
-    private TreeTableColumn<Hyperlink, Hyperlink> branduri;
-
+    private void goCosCumparaturi(javafx.event.ActionEvent ev){
+        try {
+            URL url=new File("src/main/resources/clientCosCumparaturi.fxml").toURI().toURL();
+            Parent home= null;
+            home = FXMLLoader.load(url);
+            Scene s=new Scene(home);
+            Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
+            window.setScene(s);
+            window.show();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
     @FXML
     void initialize() {
 
@@ -73,7 +84,7 @@ public class ClientController {
 
         }
         int size=jrr.size();
-        int sizee=jrrr.size();System.out.println("1="+size+",2="+sizee);
+        int sizee=jrrr.size();
         int sw;
         for (int i=0; i<sizee; i++) {
             sw=1;
@@ -127,7 +138,7 @@ public class ClientController {
 
                             });
                             v.getChildren().add(link);
-                            Hyperlink t=new Hyperlink(n);
+                            Text t=new Text(n);
                             v.getChildren().add(t);
                         }
                     }
@@ -157,7 +168,7 @@ public class ClientController {
 
                     });
                     v.getChildren().add(link);
-                    Hyperlink t=new Hyperlink(n);
+                    Text t=new Text(n);
                     v.getChildren().add(t);
                 }
                 clientTP.getChildren().add(v);

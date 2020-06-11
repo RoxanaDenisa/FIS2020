@@ -18,10 +18,10 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <JFXTextField fx:id="produsNume" layoutX="196.0" layoutY="289.0" prefHeight="36.0" prefWidth="267.0" promptText="Numele produsului" />
-      <JFXTextField fx:id="produsIngrediente" layoutX="198.0" layoutY="325.0" prefHeight="36.0" prefWidth="267.0" promptText="Ingrediente (Alergeni)" />
-      <JFXTextField fx:id="produsStoc" layoutX="198.0" layoutY="357.0" prefHeight="36.0" prefWidth="267.0" promptText="Stocul disponibil" />
-      <JFXTextField fx:id="produsCantitate" layoutX="197.0" layoutY="393.0" prefHeight="36.0" prefWidth="267.0" promptText="Cantitatea " />
+      <JFXTextField fx:id="produsNume" layoutX="196.0" layoutY="246.0" prefHeight="36.0" prefWidth="267.0" promptText="Numele produsului" />
+      <JFXTextField fx:id="produsIngrediente" layoutX="198.0" layoutY="301.0" prefHeight="36.0" prefWidth="267.0" promptText="Ingrediente (Alergeni)" />
+      <JFXTextField fx:id="produsStoc" layoutX="198.0" layoutY="348.0" prefHeight="36.0" prefWidth="267.0" promptText="Stocul disponibil" />
+      <JFXTextField fx:id="produsCantitate" layoutX="197.0" layoutY="392.0" prefHeight="36.0" prefWidth="267.0" promptText="Cantitatea " />
       <JFXTextField fx:id="produsPret" layoutX="199.0" layoutY="429.0" prefHeight="36.0" prefWidth="267.0" promptText="Prețul produsului" />
       <JFXButton fx:id="produsImagine" layoutX="355.0" layoutY="484.0" onAction="#openFile" prefHeight="5.0" prefWidth="116.0" ripplerFill="#793838" style="-fx-background-color: #800000;" text="Incarcă imagine" textAlignment="CENTER" textFill="WHITE">
          <font>
@@ -39,6 +39,5 @@
          </image>
       </ImageView>
       <JFXButton fx:id="backButton" layoutX="553.0" layoutY="578.0" onAction="#inapoiEditare" prefHeight="47.0" prefWidth="47.0" text="   " />
-      <JFXTextField fx:id="furnizorFirma" layoutX="196.0" layoutY="253.0" prefHeight="36.0" prefWidth="267.0" promptText="Numele firmei" />
    </children>
 </AnchorPane>
