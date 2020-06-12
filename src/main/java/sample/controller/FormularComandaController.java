@@ -75,6 +75,7 @@ public class FormularComandaController {
         obj.put("Produse", p);
         obj.put("Firma", firma);
         obj.put("Utilizator", retinNume);
+        obj.put("Status"," ");
         jrr.add(obj);
         try{
             FileWriter file=new FileWriter("Comenzi.json");

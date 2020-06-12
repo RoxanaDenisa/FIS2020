@@ -23,14 +23,14 @@
             </ImageView>
             <Text layoutX="538.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificare status comenzi" textAlignment="CENTER" wrappingWidth="84.6328125" />
             <JFXButton fx:id="furnizorStoc" layoutX="450.0" layoutY="27.0" onAction="#mutaEditareProduse" prefHeight="86.0" prefWidth="60.0" text="  " />
-            <JFXButton fx:id="furnizorStatus" layoutX="534.0" layoutY="26.0" prefHeight="86.0" prefWidth="85.0" text="  " />
+            <JFXButton fx:id="furnizorStatus" layoutX="534.0" layoutY="26.0" onAction="#mutaComenzi" prefHeight="86.0" prefWidth="85.0" text="  " />
             <JFXButton fx:id="modificareLoggo" layoutX="359.0" layoutY="26.0" onAction="#selecteazaPoza" prefHeight="86.0" prefWidth="73.0" text="   " />
             <ImageView fitHeight="55.0" fitWidth="48.0" layoutX="372.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/schimbaLoggo.png" />
                </image>
             </ImageView>
-            <Text layoutX="367.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loggo firmă" textAlignment="CENTER" wrappingWidth="54.99999672174454" />
+            <Text layoutX="366.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logo firmă" textAlignment="CENTER" wrappingWidth="60.13671085238457" />
          </children></AnchorPane>
       <ImageView fitHeight="141.0" fitWidth="297.0" layoutY="-17.0" pickOnBounds="true" preserveRatio="true">
          <image>

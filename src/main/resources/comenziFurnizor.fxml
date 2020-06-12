@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #968881;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ComenziFurnizorController">
+   <children>
+      <AnchorPane prefHeight="124.0" prefWidth="650.0" style="-fx-background-color: #800000;">
+         <children>
+            <ImageView fitHeight="147.0" fitWidth="269.0" layoutX="3.0" layoutY="-27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="57.0" layoutX="403.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/schimbaLoggo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="57.0" fitWidth="57.0" layoutX="483.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/edit.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="57.0" fitWidth="57.0" layoutX="559.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/furnizor.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="goLoggo" layoutX="395.0" layoutY="27.0" prefHeight="70.0" prefWidth="66.0" text=" " />
+            <JFXButton fx:id="goEdit" layoutX="484.0" layoutY="24.0" prefHeight="57.0" prefWidth="57.0" text=" " />
+            <Text layoutX="397.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logo Firmă" wrappingWidth="71.99999764561653" />
+            <Text layoutX="478.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificare stoc" textAlignment="CENTER" wrappingWidth="57.00000822544098" />
+            <Text layoutX="552.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificare status comenzi" textAlignment="CENTER" wrappingWidth="80.6328125" />
+         </children>
+      </AnchorPane>
+      <TableView fx:id="tabComFur" layoutX="10.0" layoutY="140.0" prefHeight="498.0" prefWidth="630.0" style="-fx-background-color: #968881;">
+        <columns>
+          <TableColumn fx:id="ColComFur" prefWidth="524.0" text="Comandă" />
+          <TableColumn fx:id="colStatFur" prefWidth="105.0" text="Status" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

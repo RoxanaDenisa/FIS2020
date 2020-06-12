@@ -81,7 +81,6 @@ public class FurnizorProduseController extends LoginController {
             JSONObject x = (JSONObject) jrr.get(i);
             String n = (String) x.get("Firma");
             if(n.equals(retinNume)){
-                System.out.println(n);
                 VBox v =new VBox();
                 String p = (String) x.get("Imagine");
 

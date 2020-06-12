@@ -115,6 +115,16 @@ public class FurnizorController extends Component {
 
     }
     @FXML
+    private void mutaComenzi(javafx.event.ActionEvent ev) throws Exception{
+        URL url=new File("src/main/resources/comenziFurnizor.fxml").toURI().toURL();
+        Parent home= FXMLLoader.load(url);
+        Scene s=new Scene(home);
+        Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
+        window.setScene(s);
+        window.show();
+
+    }
+    @FXML
     void initialize() {
     }
 }
