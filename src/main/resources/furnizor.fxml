@@ -4,39 +4,44 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #968881;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.FurnizorController">
    <children>
       <AnchorPane prefHeight="124.0" prefWidth="650.0" style="-fx-background-color: #800000;">
          <children>
-            <ImageView fitHeight="59.0" fitWidth="48.0" layoutX="464.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="431.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/edit.png" />
                </image>
             </ImageView>
-            <Text layoutX="451.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificare stoc" textAlignment="CENTER" wrappingWidth="60.13671875" />
-            <ImageView fitHeight="55.0" fitWidth="60.0" layoutX="547.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+            <Text layoutX="422.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificare stoc" textAlignment="CENTER" wrappingWidth="72.99999613314867" />
+            <ImageView fitHeight="68.0" fitWidth="61.0" layoutX="536.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assets/furnizor.png" />
+                  <Image url="@assets/vizualizareclient.png" />
                </image>
             </ImageView>
-            <Text layoutX="538.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificare status comenzi" textAlignment="CENTER" wrappingWidth="84.6328125" />
-            <JFXButton fx:id="furnizorStoc" layoutX="450.0" layoutY="27.0" onAction="#mutaEditareProduse" prefHeight="86.0" prefWidth="60.0" text="  " />
-            <JFXButton fx:id="furnizorStatus" layoutX="534.0" layoutY="26.0" onAction="#mutaComenzi" prefHeight="86.0" prefWidth="85.0" text="  " />
-            <JFXButton fx:id="modificareLoggo" layoutX="359.0" layoutY="26.0" onAction="#selecteazaPoza" prefHeight="86.0" prefWidth="73.0" text="   " />
-            <ImageView fitHeight="55.0" fitWidth="48.0" layoutX="372.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+            <Text layoutX="526.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vizualizare listă clienți" textAlignment="CENTER" wrappingWidth="84.6328125" />
+            <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="332.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/schimbaLoggo.png" />
                </image>
             </ImageView>
-            <Text layoutX="366.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logo firmă" textAlignment="CENTER" wrappingWidth="60.13671085238457" />
+            <Text layoutX="332.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Schimbă logo" textAlignment="CENTER" wrappingWidth="60.13671085238457" />
+            <JFXButton fx:id="furnizorStatus" layoutX="531.0" layoutY="18.0" onAction="#mutaComenzi" prefHeight="102.0" prefWidth="85.0" text="  " />
+            <JFXButton fx:id="furnizorStoc" layoutX="417.0" layoutY="21.0" onAction="#mutaEditareProduse" prefHeight="102.0" prefWidth="85.0" text="  " />
+            <JFXButton fx:id="schimbapoza" layoutX="316.0" layoutY="5.0" onAction="#selecteazaPoza" prefHeight="114.0" prefWidth="94.0" text=" " />
          </children></AnchorPane>
-      <ImageView fitHeight="141.0" fitWidth="297.0" layoutY="-17.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="205.0" fitWidth="266.0" layoutY="-22.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/logo.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXButton fx:id="Deconectare" layoutX="201.0" layoutY="599.0" onAction="#Deconectare" prefHeight="40.0" prefWidth="257.0" style="-fx-background-color: #800000;" text="Deconectare" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

@@ -7,32 +7,44 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #968881;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.FurnizorProduseController">
    <children>
-      <AnchorPane prefHeight="105.0" prefWidth="650.0" style="-fx-background-color: #800000;">
+      <AnchorPane prefHeight="124.0" prefWidth="650.0" style="-fx-background-color: #800000;">
          <children>
-            <ImageView fitHeight="149.0" fitWidth="300.0" layoutY="-38.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="205.0" fitWidth="266.0" layoutY="-22.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="55.0" fitWidth="101.0" layoutX="470.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="431.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/edit.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="559.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+            <Text layoutX="419.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificare stoc" textAlignment="CENTER" wrappingWidth="75.00000279396772" />
+            <Text layoutX="524.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vizualizare listă clienți" textAlignment="CENTER" wrappingWidth="84.99999606609344" />
+            <ImageView fitHeight="68.0" fitWidth="61.0" layoutX="536.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assets/furnizor.png" />
+                  <Image url="@assets/vizualizareclient.png" />
                </image>
             </ImageView>
-            <Text layoutX="457.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificare stoc" textAlignment="CENTER" wrappingWidth="66.0" />
-            <Text layoutX="551.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificare status comenzi" textAlignment="CENTER" wrappingWidth="84.99999606609344" />
-            <JFXButton fx:id="edPrStoc" layoutX="457.0" layoutY="14.0" prefHeight="90.0" prefWidth="75.0" text="   " />
-            <JFXButton fx:id="edPrStatus" layoutX="551.0" layoutY="14.0" prefHeight="90.0" prefWidth="85.0" text="  " />
+            <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="332.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/schimbaLoggo.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="325.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Schimbă logo" textAlignment="CENTER" wrappingWidth="74.99999552965164" />
+            <JFXButton fx:id="edPrStatus" layoutX="522.0" layoutY="23.0" onAction="#goVizualizare" prefHeight="101.0" prefWidth="85.0" text="  " />
+            <JFXButton fx:id="edPrStoc" layoutX="424.0" layoutY="18.0" onAction="#goEditareProduse" prefHeight="101.0" prefWidth="75.0" text="   " />
+            <JFXButton fx:id="Schimbalogo" layoutX="311.0" layoutY="18.0" onAction="#selecteazaPoza" prefHeight="101.0" prefWidth="104.0" text=" " />
          </children>
       </AnchorPane>
-      <TilePane fx:id="furnizorTP" layoutY="111.0" prefHeight="558.0" prefWidth="650.0" />
+      <TilePane fx:id="furnizorTP" layoutY="124.0" prefHeight="469.0" prefWidth="650.0" />
+      <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="299.0" layoutY="592.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/bk.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="goback" layoutX="298.0" layoutY="592.0" onAction="#goBack" prefHeight="61.0" prefWidth="61.0" text=" " />
    </children>
 </AnchorPane>

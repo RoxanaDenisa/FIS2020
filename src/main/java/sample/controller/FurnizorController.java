@@ -1,6 +1,7 @@
 package sample.controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -59,9 +60,23 @@ public class FurnizorController extends Component {
         }
         return base64Image;
     }
-
     @FXML
-    public void selecteazaPoza(javafx.event.ActionEvent ev) {
+    private void Deconectare(javafx.event.ActionEvent ev){
+        try {
+            URL url=new File("src/main/resources/login.fxml").toURI().toURL();
+            Parent home= null;
+            home = FXMLLoader.load(url);
+            Scene s=new Scene(home);
+            Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
+            window.setScene(s);
+            window.show();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    @FXML
+    public void selecteazaPoza(ActionEvent ev) {
+        System.out.println("ceva");
         JSONObject obj=new JSONObject();
         JSONArray jrr=new JSONArray();
         JSONParser jp=new JSONParser();

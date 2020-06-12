@@ -20,11 +20,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.Base64;
 import java.util.ResourceBundle;
@@ -45,7 +43,32 @@ public class ClientController {
 
     @FXML
     private TilePane clientTP;
+    private void initializareCosCumparaturi(){
+        JSONArray jrr=new JSONArray();
+        try{
+            FileWriter file=new FileWriter("cosCumparaturi.json");
+            file.write(jrr.toJSONString());
+            file.close();
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Error occured");
+        }
 
+    }
+    @FXML
+    private void goComenzi(javafx.event.ActionEvent ev){
+        try {
+            URL url=new File("src/main/resources/ComenziClient.fxml").toURI().toURL();
+            Parent home= null;
+            home = FXMLLoader.load(url);
+            Scene s=new Scene(home);
+            Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
+            window.setScene(s);
+            window.show();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
     @FXML
     private void goCosCumparaturi(javafx.event.ActionEvent ev){
         try {
@@ -124,6 +147,7 @@ public class ClientController {
 
                                 try {
                                     firma=n;
+
                                     URL url=new File("src/main/resources/clientps1.fxml").toURI().toURL();
                                     Parent home= null;
                                     home = FXMLLoader.load(url);
@@ -175,5 +199,7 @@ public class ClientController {
 
             }
             }
+        initializareCosCumparaturi();
     }
+
 }

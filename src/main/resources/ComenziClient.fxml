@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="650.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ClientComenziController">
+   <children>
+      <AnchorPane prefHeight="124.0" prefWidth="650.0" style="-fx-background-color: #800000;">
+         <children>
+            <ImageView fitHeight="205.0" fitWidth="266.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="68.0" fitWidth="61.0" layoutX="431.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/order.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="536.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/shopping-bag.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="416.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comenzile mele" textAlignment="CENTER" wrappingWidth="95.6708984375" />
+            <Text layoutX="508.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coș de cumpărături" textAlignment="CENTER" wrappingWidth="114.6708984375" />
+            <JFXButton fx:id="ComenziComenzi" layoutX="426.0" layoutY="20.0" onAction="#reload" prefHeight="106.0" prefWidth="76.0" text=" " />
+            <JFXButton fx:id="CosComenzi" layoutX="519.0" layoutY="9.0" onAction="#goCosCumparaturi" prefHeight="106.0" prefWidth="96.0" text=" " />
+         </children>
+      </AnchorPane>
+      <TableView fx:id="TableComenzi" layoutY="126.0" prefHeight="452.0" prefWidth="650.0" style="-fx-background-color: #968881;">
+        <columns>
+          <TableColumn fx:id="TableDetaliiComenzi" prefWidth="421.0" text="Detalii comandă" />
+          <TableColumn fx:id="TableStatusComenzi" minWidth="0.0" prefWidth="228.0" text="Status" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="295.0" layoutY="578.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/bk.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="Back" layoutX="295.0" layoutY="578.0" onAction="#goback" prefHeight="61.0" prefWidth="61.0" text=" " />
+   </children>
+</AnchorPane>

@@ -8,43 +8,49 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #968881;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ComenziFurnizorController">
+<AnchorPane prefHeight="650.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ComenziFurnizorController">
    <children>
       <AnchorPane prefHeight="124.0" prefWidth="650.0" style="-fx-background-color: #800000;">
          <children>
-            <ImageView fitHeight="147.0" fitWidth="269.0" layoutX="3.0" layoutY="-27.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="205.0" fitWidth="266.0" layoutY="-22.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="57.0" layoutX="403.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="331.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/schimbaLoggo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="57.0" fitWidth="57.0" layoutX="483.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="431.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/edit.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="57.0" fitWidth="57.0" layoutX="559.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="68.0" fitWidth="61.0" layoutX="536.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assets/furnizor.png" />
+                  <Image url="@assets/vizualizareclient.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="goLoggo" layoutX="395.0" layoutY="27.0" prefHeight="70.0" prefWidth="66.0" text=" " />
-            <JFXButton fx:id="goEdit" layoutX="484.0" layoutY="24.0" prefHeight="57.0" prefWidth="57.0" text=" " />
-            <Text layoutX="397.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logo Firmă" wrappingWidth="71.99999764561653" />
-            <Text layoutX="478.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificare stoc" textAlignment="CENTER" wrappingWidth="57.00000822544098" />
-            <Text layoutX="552.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificare status comenzi" textAlignment="CENTER" wrappingWidth="80.6328125" />
+            <JFXButton fx:id="goLoggo" layoutX="325.0" layoutY="18.0" onAction="#selecteazaPoza" prefHeight="102.0" prefWidth="72.0" text=" " />
+            <JFXButton fx:id="goEdit" layoutX="423.0" layoutY="24.0" onAction="#mutaEditareProduse" prefHeight="94.0" prefWidth="81.0" text=" " />
+            <Text layoutX="325.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logo Firmă" textAlignment="CENTER" wrappingWidth="71.99999764561653" />
+            <Text layoutX="424.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificare stoc" textAlignment="CENTER" wrappingWidth="71.99999764561653" />
+            <Text layoutX="529.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vizualizare listă clienți" textAlignment="CENTER" wrappingWidth="80.6328125" />
+            <JFXButton fx:id="vizualizare" layoutX="529.0" layoutY="20.0" onAction="#mutaComenzi" prefHeight="94.0" prefWidth="81.0" text=" " />
          </children>
       </AnchorPane>
-      <TableView fx:id="tabComFur" layoutX="10.0" layoutY="140.0" prefHeight="498.0" prefWidth="630.0" style="-fx-background-color: #968881;">
+      <TableView fx:id="tabComFur" fixedCellSize="40.0" layoutX="-3.0" layoutY="123.0" prefHeight="470.0" prefWidth="650.0" style="-fx-background-color: #968881;">
         <columns>
-          <TableColumn fx:id="ColComFur" prefWidth="524.0" text="Comandă" />
-          <TableColumn fx:id="colStatFur" prefWidth="105.0" text="Status" />
+          <TableColumn fx:id="ColComFur" prefWidth="414.0" text="Comandă" />
+          <TableColumn fx:id="colStatFur" prefWidth="235.0" text="Status" />
         </columns>
       </TableView>
+      <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="299.0" layoutY="592.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/bk.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="back" layoutX="297.0" layoutY="593.0" onAction="#goback" prefHeight="61.0" prefWidth="61.0" text=" " />
    </children>
 </AnchorPane>

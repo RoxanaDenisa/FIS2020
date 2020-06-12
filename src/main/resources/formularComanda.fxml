@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #968881;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.FormularComandaController">
    <children>
       <AnchorPane prefHeight="124.0" prefWidth="650.0" style="-fx-background-color: #800000;">
@@ -20,13 +19,19 @@
          </children>
       </AnchorPane>
       <JFXTextField fx:id="npformular" layoutX="122.0" layoutY="196.0" prefHeight="31.0" prefWidth="391.0" promptText="Nume și prenume" />
-      <JFXTextField fx:id="nrtelformular" layoutX="122.0" layoutY="262.0" prefHeight="31.0" prefWidth="391.0" promptText="Număr de telefon" />
-      <JFXTextField fx:id="codformular" layoutX="122.0" layoutY="390.0" prefHeight="31.0" prefWidth="391.0" promptText="Cod poștal" />
-      <JFXTextField fx:id="adresaformular" layoutX="122.0" layoutY="325.0" prefHeight="31.0" prefWidth="391.0" promptText="Adresă" />
-      <JFXButton fx:id="finalizareformular" layoutX="204.0" layoutY="493.0" onAction="#finalizareComanda" prefHeight="55.0" prefWidth="230.0" style="-fx-background-color: #800000;" text="Finalizare comandă" textAlignment="CENTER" textFill="WHITE">
+      <JFXTextField fx:id="nrtelformular" layoutX="122.0" layoutY="274.0" prefHeight="31.0" prefWidth="391.0" promptText="Număr de telefon" />
+      <JFXTextField fx:id="codformular" layoutX="122.0" layoutY="422.0" prefHeight="31.0" prefWidth="391.0" promptText="Cod poștal" />
+      <JFXTextField fx:id="adresaformular" layoutX="122.0" layoutY="353.0" prefHeight="31.0" prefWidth="391.0" promptText="Adresă" />
+      <JFXButton fx:id="finalizareformular" layoutX="215.0" layoutY="519.0" onAction="#finalizareComanda" prefHeight="55.0" prefWidth="230.0" style="-fx-background-color: #800000;" text="Finalizare comandă" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
+      <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="299.0" layoutY="592.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/bk.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="goback" layoutX="300.0" layoutY="589.0" onAction="#goCosCumparaturi" prefHeight="61.0" prefWidth="61.0" text=" " />
    </children>
 </AnchorPane>

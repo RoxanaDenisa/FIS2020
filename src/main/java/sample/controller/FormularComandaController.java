@@ -3,11 +3,17 @@ package sample.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import javax.swing.*;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.net.URL;
@@ -38,6 +44,20 @@ public class FormularComandaController {
 
     @FXML
     private JFXButton finalizareformular;
+    @FXML
+    private void goCosCumparaturi(javafx.event.ActionEvent ev){
+        try {
+            URL url=new File("src/main/resources/clientCosCumparaturi.fxml").toURI().toURL();
+            Parent home= null;
+            home = FXMLLoader.load(url);
+            Scene s=new Scene(home);
+            Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
+            window.setScene(s);
+            window.show();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
     @FXML
     void finalizareComanda(javafx.event.ActionEvent ev){
         JSONObject obj=new JSONObject();
