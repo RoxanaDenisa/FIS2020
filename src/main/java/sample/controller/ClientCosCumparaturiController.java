@@ -11,6 +11,7 @@ import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
@@ -19,6 +20,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -88,12 +90,25 @@ public class ClientCosCumparaturiController {
     }
     @FXML
     void plasareComanda(javafx.event.ActionEvent ev) throws Exception {
+        JSONArray jrr=new JSONArray();
+        JSONParser jp=new JSONParser();
+        try{
+            FileReader file= new FileReader("cosCumparaturi.json");
+            jrr= (JSONArray)jp.parse(file);
+            file.close();
+        }
+        catch (Exception e){
+
+        }
+        if(jrr.size()!=0){
         URL url = new File("src/main/resources/formularComanda.fxml").toURI().toURL();
         Parent home = FXMLLoader.load(url);
         Scene s = new Scene(home);
         Stage window = (Stage) ((Node) ev.getSource()).getScene().getWindow();
         window.setScene(s);
-        window.show();
+        window.show();}
+        else
+            JOptionPane.showMessageDialog(null,"Nu ati adaugat produse in cos");
     }
     @FXML
     private void goLivrare(javafx.event.ActionEvent ev) throws Exception{
@@ -105,14 +120,16 @@ public class ClientCosCumparaturiController {
         window.show();
 
     }
+    private Integer total=0;
     @FXML
     void initialize() {
+
         JSONArray jrr=new JSONArray();
         JSONParser jp=new JSONParser();
         try{
             FileReader file= new FileReader("cosCumparaturi.json");
             jrr= (JSONArray)jp.parse(file);
-
+            file.close();
         }
         catch (Exception e){
 
@@ -124,6 +141,8 @@ public class ClientCosCumparaturiController {
             String p = (String) x.get("Imagine");
             String n=(String) x.get("Nume");
             String pr=(String) x.get("Pret");
+            Integer pret=Integer.parseInt(pr);
+            total=total+pret;
             byte[] decodedBytes = Base64.getDecoder().decode(p.getBytes());
             ByteArrayInputStream bis = new ByteArrayInputStream(decodedBytes);
             BufferedImage bi = null;
@@ -145,14 +164,21 @@ public class ClientCosCumparaturiController {
                 imgv.setFitHeight(100);
                 imgv.setFitWidth(100);
                 h.getChildren().add(imgv);
-                Text t=new Text(n);
+                Text t=new Text("Nume produs: "+n+" \n");
                 t.setTextAlignment(TextAlignment.CENTER);
                 h.getChildren().add(t);
-                Text t2=new Text(pr);
+                Text t2=new Text(", pret: "+pr+" lei \n");
                 t2.setTextAlignment(TextAlignment.CENTER);
                 h.getChildren().add(t2);
             }
             prodBox.getChildren().add(h);
         }
+        total=total+20;
+          HBox tot=new HBox();
+          Text t=new Text("Cost total: "+total.toString()+"lei");
+          t.setFont(new Font("Times New Roman",30));
+          t.setTextAlignment(TextAlignment.RIGHT);
+        tot.getChildren().add(t);
+        prodBox.getChildren().add(tot);
     }
 }

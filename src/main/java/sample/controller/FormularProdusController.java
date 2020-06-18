@@ -113,7 +113,7 @@ public class FormularProdusController extends Component {
             try{
                 FileReader file= new FileReader("ProductData.json");
                 jrr= (JSONArray)jp.parse(file);
-
+                file.close();
             }
             catch (Exception e){
 

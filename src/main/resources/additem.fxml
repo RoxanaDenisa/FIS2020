@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -32,6 +33,14 @@
                 <JFXButton fx:id="additemCosButton" layoutX="527.0" layoutY="23.0" onAction="#goCosCumparaturi" prefHeight="99.0" prefWidth="76.0" text="  " />
             </children>
         </AnchorPane>
-      <TilePane fx:id="clientTP" layoutY="122.0" prefHeight="530.0" prefWidth="650.0" />
+      <ScrollPane layoutX="-4.0" layoutY="124.0" prefHeight="530.0" prefWidth="653.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="900.0" prefWidth="633.0" style="-fx-background-color: #968881;">
+               <children>
+                  <TilePane fx:id="clientTP" layoutX="31.0" layoutY="-3.0" prefHeight="903.0" prefWidth="624.0" style="-fx-background-color: #968881;" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
     </children>
 </AnchorPane>
