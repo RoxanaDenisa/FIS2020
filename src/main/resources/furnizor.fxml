@@ -43,5 +43,10 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
+      <ImageView fitHeight="522.0" fitWidth="642.0" layoutX="-6.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/ppf.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

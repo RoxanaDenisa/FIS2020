@@ -14,6 +14,8 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -59,6 +61,20 @@ public class ClientController {
     private void goComenzi(javafx.event.ActionEvent ev){
         try {
             URL url=new File("src/main/resources/ComenziClient.fxml").toURI().toURL();
+            Parent home= null;
+            home = FXMLLoader.load(url);
+            Scene s=new Scene(home);
+            Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
+            window.setScene(s);
+            window.show();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    @FXML
+    private void deconectare(javafx.event.ActionEvent ev){
+        try {
+            URL url=new File("src/main/resources/login.fxml").toURI().toURL();
             Parent home= null;
             home = FXMLLoader.load(url);
             Scene s=new Scene(home);
@@ -140,8 +156,8 @@ public class ClientController {
                                 }
                             }
                             ImageView imgv = new ImageView(wi);
-                            imgv.setFitHeight(100);
-                            imgv.setFitWidth(100);
+                            imgv.setFitHeight(150);
+                            imgv.setFitWidth(150);
                             Hyperlink link = new Hyperlink(null, imgv);
                             link.setOnAction(e->{
 
@@ -163,7 +179,9 @@ public class ClientController {
                             });
                             v.getChildren().add(link);
                             Text t=new Text(n);
-                            v.getChildren().add(t);
+                            TextFlow tf=new TextFlow(t);
+                            tf.setTextAlignment(TextAlignment.CENTER);
+                            v.getChildren().add(tf);
                         }
                     }
 
@@ -171,8 +189,8 @@ public class ClientController {
                 if(sw==1){
                     Image wi=new Image("/assets/faraLoggo.png");
                     ImageView imgv = new ImageView(wi);
-                    imgv.setFitHeight(100);
-                    imgv.setFitWidth(100);
+                    imgv.setFitHeight(150);
+                    imgv.setFitWidth(150);
                     Hyperlink link = new Hyperlink(null, imgv);
                     link.setOnAction(e->{
 
@@ -193,7 +211,9 @@ public class ClientController {
                     });
                     v.getChildren().add(link);
                     Text t=new Text(n);
-                    v.getChildren().add(t);
+                    TextFlow tf=new TextFlow(t);
+                    tf.setTextAlignment(TextAlignment.CENTER);
+                    v.getChildren().add(tf);
                 }
                 clientTP.getChildren().add(v);
 

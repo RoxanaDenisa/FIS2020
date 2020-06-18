@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -165,14 +166,17 @@ public class ClientCosCumparaturiController {
                 imgv.setFitWidth(100);
                 h.getChildren().add(imgv);
                 Text t=new Text("Nume produs: "+n+" \n");
-                t.setTextAlignment(TextAlignment.CENTER);
-                h.getChildren().add(t);
+                TextFlow tf=new TextFlow(t);
+                tf.setTextAlignment(TextAlignment.CENTER);
+                h.getChildren().add(tf);
                 Text t2=new Text(", pret: "+pr+" lei \n");
-                t2.setTextAlignment(TextAlignment.CENTER);
-                h.getChildren().add(t2);
+                TextFlow tf2=new TextFlow(t2);
+                tf2.setTextAlignment(TextAlignment.CENTER);
+                h.getChildren().add(tf2);
             }
             prodBox.getChildren().add(h);
         }
+        if (total!=0)
         total=total+20;
           HBox tot=new HBox();
           Text t=new Text("Cost total: "+total.toString()+"lei");

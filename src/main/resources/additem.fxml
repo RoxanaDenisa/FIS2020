@@ -12,7 +12,7 @@
     <children>
         <AnchorPane prefHeight="124.0" prefWidth="650.0" style="-fx-background-color: #800000;">
             <children>
-                <ImageView fitHeight="205.0" fitWidth="266.0" layoutY="-22.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="205.0" fitWidth="266.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@assets/logo.png" />
                     </image>
@@ -33,14 +33,15 @@
                 <JFXButton fx:id="additemCosButton" layoutX="527.0" layoutY="23.0" onAction="#goCosCumparaturi" prefHeight="99.0" prefWidth="76.0" text="  " />
             </children>
         </AnchorPane>
-      <ScrollPane layoutX="-4.0" layoutY="124.0" prefHeight="530.0" prefWidth="653.0">
+      <ScrollPane layoutY="125.0" prefHeight="474.0" prefWidth="650.0">
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="900.0" prefWidth="633.0" style="-fx-background-color: #968881;">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="900.0" prefWidth="630.0" style="-fx-background-color: #968881;">
                <children>
-                  <TilePane fx:id="clientTP" layoutX="31.0" layoutY="-3.0" prefHeight="903.0" prefWidth="624.0" style="-fx-background-color: #968881;" />
+                  <TilePane fx:id="clientTP" layoutX="3.0" prefHeight="900.0" prefWidth="624.0" style="-fx-background-color: #968881;" />
                </children>
             </AnchorPane>
          </content>
       </ScrollPane>
+      <JFXButton fx:id="deconectare" layoutX="224.0" layoutY="599.0" onAction="#deconectare" prefHeight="31.0" prefWidth="202.0" style="-fx-background-color: #800000;" text="Deconectare" textFill="WHITE" />
     </children>
 </AnchorPane>

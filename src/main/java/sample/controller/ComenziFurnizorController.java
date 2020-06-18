@@ -116,11 +116,11 @@ public class ComenziFurnizorController extends Component {
             }
             catch (IOException ex)
             {
-                JOptionPane.showMessageDialog(null, "Nu s.a putut incarca");
+                JOptionPane.showMessageDialog(null, "Nu s-a putut încărca");
             }
         }
         else{
-            JOptionPane.showMessageDialog(null, "Nu ati selectat niciun fisier");
+            JOptionPane.showMessageDialog(null, "Nu ați selectat niciun fișier");
 
         }
 
@@ -243,7 +243,7 @@ public class ComenziFurnizorController extends Component {
                 imgv2.setFitWidth(20);
                 Hyperlink h2=new Hyperlink("  ",imgv2);
                     h2.setOnAction(e->{
-                          x.put("Status","Comanda respinsa");
+                          x.put("Status","Comandă respinsă");
                         try {
                             modificare(nc,pr,x);
                         } catch (IOException ex) {
@@ -255,9 +255,9 @@ public class ComenziFurnizorController extends Component {
                else {
                     ObservableList<String> options =
                             FXCollections.observableArrayList(
-                                    "comanda predata curierului",
-                                    "comanda in tranzit",
-                                    "comanda livrata"
+                                    "Comandă predată curierului",
+                                    "Comandă în tranzit",
+                                    "Comandă livrată"
                             );
                     ComboBox cb = new ComboBox(options);
                     cb.setPromptText("Modifiare status");

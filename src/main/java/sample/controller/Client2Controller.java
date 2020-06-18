@@ -43,7 +43,30 @@ public class Client2Controller {
 
     @FXML
     private TilePane client2TP;
+    @FXML
+    private void goComenzi(javafx.event.ActionEvent ev){
+        try {
+            URL url=new File("src/main/resources/ComenziClient.fxml").toURI().toURL();
+            Parent home= null;
+            home = FXMLLoader.load(url);
+            Scene s=new Scene(home);
+            Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
+            window.setScene(s);
+            window.show();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    @FXML
+    private void goBack(javafx.event.ActionEvent ev) throws Exception{
+        URL url=new File("src/main/resources/additem.fxml").toURI().toURL();
+        Parent home= FXMLLoader.load(url);
+        Scene s=new Scene(home);
+        Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
+        window.setScene(s);
+        window.show();
 
+    }
     @FXML
     void goCosCumparaturi(javafx.event.ActionEvent ev){
         try {
