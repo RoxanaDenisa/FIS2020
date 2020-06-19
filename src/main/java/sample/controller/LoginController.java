@@ -18,9 +18,11 @@ import javax.swing.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.net.URL;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
+
+import static sample.services.UserDataService.hash;
+
 public class LoginController {
     public static String retinNume;
     @FXML
@@ -65,17 +67,7 @@ public class LoginController {
         window.show();
 
     }
-    public static String hash(String p) throws NoSuchAlgorithmException {
-        MessageDigest md=MessageDigest.getInstance("MD5");
-        md.update(p.getBytes());
-        byte[] b=md.digest();
-        StringBuffer SB=new StringBuffer();
-        for (byte b1:b){
-            SB.append(Integer.toHexString(b1& 0xff).toString());
 
-        }
-        return SB.toString();
-    }
     @FXML
     public void apasaAutentificare(javafx.event.ActionEvent ev)throws Exception{
         JSONArray jrr=new JSONArray();

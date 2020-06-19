@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/try.iml" beforeDir="false" afterPath="$PROJECT_DIR$/try.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/services/UserDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/services/UserDataService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sample/services/UserDataServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sample/services/UserDataServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +159,7 @@
       <recent name="C:\Users\Roxi\IdeaProjects\try\src\main\java\sample\assets" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserDataServiceTest.testOpenFile">
+  <component name="RunManager" selected="JUnit.UserDataServiceTest.testPasswordEncoding">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -220,6 +220,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserDataServiceTest.testPasswordEncoding" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="try" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sample.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sample.services" />
+      <option name="MAIN_CLASS_NAME" value="sample.services.UserDataServiceTest" />
+      <option name="METHOD_NAME" value="testPasswordEncoding" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -253,6 +273,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserDataServiceTest.testPasswordEncoding" />
         <item itemvalue="JUnit.UserDataServiceTest.testOpenFile" />
       </list>
     </recent_temporary>
@@ -289,7 +310,7 @@
       <workItem from="1591991021175" duration="9372000" />
       <workItem from="1592142952903" duration="648000" />
       <workItem from="1592486038065" duration="740000" />
-      <workItem from="1592558474854" duration="9942000" />
+      <workItem from="1592558474854" duration="10859000" />
     </task>
     <servers />
   </component>
@@ -344,26 +365,26 @@
     </state>
     <state x="488" y="139" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1591041349027" />
     <state x="549" y="157" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1592573818744" />
-    <state width="1493" height="649" key="GridCell.Tab.0.bottom" timestamp="1592579725414">
+    <state width="1493" height="244" key="GridCell.Tab.0.bottom" timestamp="1592580680229">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="176" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592143612813" />
-    <state width="1493" height="649" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592579725414" />
-    <state width="1493" height="649" key="GridCell.Tab.0.center" timestamp="1592579725414">
+    <state width="1493" height="244" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592580680229" />
+    <state width="1493" height="244" key="GridCell.Tab.0.center" timestamp="1592580680229">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="176" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1592143612813" />
-    <state width="1493" height="649" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592579725414" />
-    <state width="1493" height="649" key="GridCell.Tab.0.left" timestamp="1592579725414">
+    <state width="1493" height="244" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592580680229" />
+    <state width="1493" height="244" key="GridCell.Tab.0.left" timestamp="1592580680229">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="176" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1592143612813" />
-    <state width="1493" height="649" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592579725414" />
-    <state width="1493" height="649" key="GridCell.Tab.0.right" timestamp="1592579725414">
+    <state width="1493" height="244" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592580680229" />
+    <state width="1493" height="244" key="GridCell.Tab.0.right" timestamp="1592580680229">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="176" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592143612813" />
-    <state width="1493" height="649" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592579725414" />
+    <state width="1493" height="244" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592580680229" />
     <state x="299" y="70" key="Maven.ArtifactSearchDialog" timestamp="1592579143055">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
