@@ -8,14 +8,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import sample.services.UserDataService;
 
 import javax.swing.*;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.net.URL;
 import java.security.MessageDigest;
@@ -25,15 +25,16 @@ public class LoginController {
     public static String retinNume;
     @FXML
     private ResourceBundle resources;
-
+    @FXML
+    public static Text registrationMessage;
     @FXML
     private URL location;
 
     @FXML
-    private JFXPasswordField loginPassword;
+    public JFXPasswordField loginPassword;
 
     @FXML
-    private JFXTextField loginUsername;
+    public JFXTextField loginUsername;
 
     @FXML
     private JFXButton loginButton;
@@ -76,22 +77,16 @@ public class LoginController {
         return SB.toString();
     }
     @FXML
-    private void apasaAutentificare(javafx.event.ActionEvent ev)throws Exception{
+    public void apasaAutentificare(javafx.event.ActionEvent ev)throws Exception{
         JSONArray jrr=new JSONArray();
-        Object ob=null;
-        JSONParser jp=new JSONParser();
-
-        //fetch file
         try{
-            FileReader file= new FileReader( "UserData.json");
-            ob=jp.parse(file);
-            jrr=(JSONArray)ob;
-            file.close();
-
+        jrr= UserDataService.OpenFile("UserData.json");
+            //registrationMessage.setText("Login successfully!");
         }
+
         catch(Exception e){
             JOptionPane.showMessageDialog(null,"Error occured while fetching");
-
+            //registrationMessage.setText("Error login!");
         }
         JSONObject obj=new JSONObject();
 
@@ -121,7 +116,9 @@ public class LoginController {
                 Scene s=new Scene(home);
                 Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
                 window.setScene(s);
-                window.show();}
+                window.show();
+
+                }
                 else
                     if(cf==true)
                     {
@@ -131,6 +128,7 @@ public class LoginController {
                         Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
                         window.setScene(s);
                         window.show();
+
                     }
                 break;
             }
