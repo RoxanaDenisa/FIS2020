@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
@@ -89,18 +88,10 @@ public class FurnizorProduseController extends Component {
         UserDataService.muta(ev,"src/main/resources/formularAddProdus.fxml");
     }
     @FXML
-    public void selecteazaPoza(javafx.event.ActionEvent ev) {
+    public void selecteazaPoza(javafx.event.ActionEvent ev) throws Exception {
         JSONObject obj=new JSONObject();
-        JSONArray jrr=new JSONArray();
-        JSONParser jp=new JSONParser();
-        try{
-            FileReader file= new FileReader("LoggoFirme.json");
-            jrr= (JSONArray)jp.parse(file);
-
-        }
-        catch (Exception e){
-
-        }
+        JSONArray jrr;
+        jrr=UserDataService.OpenFile("LoggoFirme.json");
         int returnValue=openFileChooser.showOpenDialog(this);
         if(returnValue== JFileChooser.APPROVE_OPTION){
             try{
@@ -109,17 +100,21 @@ public class FurnizorProduseController extends Component {
                 String img;
                 String x=openFileChooser.getSelectedFile().getAbsolutePath();
                 img=encoder(x);
-                obj.put("Nume", retinNume);
+                int n=jrr.size();
+                for(int i=0;i<n;i++){
+                    JSONObject o = (JSONObject) jrr.get(i);
+                    String str = (String) o.get("Nume");
+                    if(str.equals(LoginController.retinNume))
+                    {
+                        jrr.remove(i);
+                        UserDataService.writeFile(jrr,"LoggoFirme.json");
+                        break;
+                    }
+                }
+                obj.put("Nume",LoginController.retinNume);
                 obj.put("Imagine",img);
                 jrr.add(obj);
-                try{
-                    FileWriter file=new FileWriter("LoggoFirme.json");
-                    file.write(jrr.toJSONString());
-                    file.close();
-                }
-                catch (Exception e){
-                    JOptionPane.showMessageDialog(null,"Error occured");
-                }
+                UserDataService.writeFile(jrr,"LoggoFirme.json");
             }
             catch (IOException ex)
             {
@@ -130,6 +125,7 @@ public class FurnizorProduseController extends Component {
             JOptionPane.showMessageDialog(null, "Nu ati selectat niciun fisier");
 
         }
+
 
     }
     void editare(Integer integ, javafx.event.ActionEvent e) throws Exception {
@@ -148,10 +144,7 @@ public class FurnizorProduseController extends Component {
             JSONObject x = (JSONObject) jr.get(i);
             if(integ==i){
                 jr.remove(x);
-                FileWriter file = null;
-                    file = new FileWriter("ProductData.json");
-                    file.write(jr.toJSONString());
-                    file.close();
+                UserDataService.writeFile(jr,"ProductData.json");
                     goFormular(e);
                 break;
                 }
@@ -159,15 +152,7 @@ public class FurnizorProduseController extends Component {
         }
     void stergeprod(Integer integ, javafx.event.ActionEvent e) throws Exception {
         JSONArray jr = new JSONArray();
-        JSONParser jp = new JSONParser();
-        try {
-            FileReader file= new FileReader("ProductData.json");
-            jr = (JSONArray) jp.parse(file);
-            file.close();
-
-        } catch (Exception ex) {
-
-        }
+        jr=UserDataService.OpenFile("ProductData.json");
         int size = jr.size();
         for (int i = 0; i < size; i++) {
             JSONObject x = (JSONObject) jr.get(i);
@@ -175,18 +160,14 @@ public class FurnizorProduseController extends Component {
             if(integ==i){
                 jr.remove(x);
                 System.out.println("Pr"+jr.size());
-                FileWriter file = null;
-                file = new FileWriter("ProductData.json");
-                file.write(jr.toJSONString());
-                file.close();
+               UserDataService.writeFile(jr,"ProductData.json");
                 break;
             }
         }
-
         goEditareProduse(e);
     }
     @FXML
-    void initialize() {
+    void initialize() throws Exception {
         Image img=new Image("/assets/add.png");
         ImageView iv=new ImageView(img);
         iv.setFitHeight(70);
@@ -207,15 +188,7 @@ public class FurnizorProduseController extends Component {
             }
         });
         JSONArray jrr=new JSONArray();
-        JSONParser jp=new JSONParser();
-        try{
-            FileReader file= new FileReader("ProductData.json");
-            jrr= (JSONArray)jp.parse(file);
-            file.close();
-        }
-        catch (Exception e){
-
-        }
+        jrr=UserDataService.OpenFile("ProductData.json");
         int size=jrr.size();
         for (int i=0; i<size; i++) {
             JSONObject x = (JSONObject) jrr.get(i);
@@ -223,28 +196,11 @@ public class FurnizorProduseController extends Component {
             if(n.equals(retinNume)){
                 VBox v =new VBox();
                 String p = (String) x.get("Imagine");
-
-                    byte[] decodedBytes = Base64.getDecoder().decode(p.getBytes());
-                    ByteArrayInputStream bis = new ByteArrayInputStream(decodedBytes);
-                    BufferedImage bi = null;
-                    try {
-                        bi = ImageIO.read(bis);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    WritableImage wi = null;
-                    if (bi != null) {
-                        wi = new WritableImage(bi.getWidth(), bi.getHeight());
-                        PixelWriter pw = wi.getPixelWriter();
-                        for (int t = 0; t < bi.getWidth(); t++) {
-                            for (int u = 0; u < bi.getHeight(); u++) {
-                                pw.setArgb(t, u, bi.getRGB(t, u));
-                            }
-                        }
-                    }
+                WritableImage wi = null;
+                wi=UserDataService.deodarePoza(p);
                     ImageView imgv=new ImageView(wi);
-                    imgv.setFitHeight(70);
-                    imgv.setFitWidth(70);
+                    imgv.setFitHeight(150);
+                    imgv.setFitWidth(150);
                     v.getChildren().add(imgv);
                     String np=(String) x.get("Nume produs");
                     String ing=(String) x.get("Ingrediente");

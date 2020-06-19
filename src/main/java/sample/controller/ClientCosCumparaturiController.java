@@ -7,7 +7,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -21,15 +20,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import sample.services.UserDataService;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.net.URL;
-import java.util.Base64;
 import java.util.ResourceBundle;
 
 public class ClientCosCumparaturiController {
@@ -63,15 +56,7 @@ public class ClientCosCumparaturiController {
     @FXML
     void plasareComanda(javafx.event.ActionEvent ev) throws Exception {
         JSONArray jrr=new JSONArray();
-        JSONParser jp=new JSONParser();
-        try{
-            FileReader file= new FileReader("cosCumparaturi.json");
-            jrr= (JSONArray)jp.parse(file);
-            file.close();
-        }
-        catch (Exception e){
-
-        }
+        jrr=UserDataService.OpenFile("cosCumparaturi.json");
         if(jrr.size()!=0){
         URL url = new File("src/main/resources/formularComanda.fxml").toURI().toURL();
         Parent home = FXMLLoader.load(url);
@@ -89,18 +74,11 @@ public class ClientCosCumparaturiController {
     }
     private Integer total=0;
     @FXML
-    void initialize() {
+    void initialize() throws Exception {
 
         JSONArray jrr=new JSONArray();
         JSONParser jp=new JSONParser();
-        try{
-            FileReader file= new FileReader("cosCumparaturi.json");
-            jrr= (JSONArray)jp.parse(file);
-            file.close();
-        }
-        catch (Exception e){
-
-        }
+        jrr=UserDataService.OpenFile("cosCumparaturi.json");
         int size=jrr.size();
         for (int i=0; i<size; i++) {
             HBox h = new HBox();
@@ -110,23 +88,8 @@ public class ClientCosCumparaturiController {
             String pr=(String) x.get("Pret");
             Integer pret=Integer.parseInt(pr);
             total=total+pret;
-            byte[] decodedBytes = Base64.getDecoder().decode(p.getBytes());
-            ByteArrayInputStream bis = new ByteArrayInputStream(decodedBytes);
-            BufferedImage bi = null;
-            try {
-                bi = ImageIO.read(bis);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
             WritableImage wi = null;
-            if (bi != null) {
-                wi = new WritableImage(bi.getWidth(), bi.getHeight());
-                PixelWriter pw = wi.getPixelWriter();
-                for (int t = 0; t < bi.getWidth(); t++) {
-                    for (int u = 0; u < bi.getHeight(); u++) {
-                        pw.setArgb(t, u, bi.getRGB(t, u));
-                    }
-                }
+            wi=UserDataService.deodarePoza(p);
                 ImageView imgv = new ImageView(wi);
                 imgv.setFitHeight(100);
                 imgv.setFitWidth(100);
@@ -139,7 +102,6 @@ public class ClientCosCumparaturiController {
                 TextFlow tf2=new TextFlow(t2);
                 tf2.setTextAlignment(TextAlignment.CENTER);
                 h.getChildren().add(tf2);
-            }
             prodBox.getChildren().add(h);
         }
         if (total!=0)

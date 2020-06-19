@@ -6,7 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import sample.services.UserDataService;
 
 import javax.imageio.ImageIO;
@@ -100,14 +99,10 @@ public class FormularProdusController extends Component {
         salvareProdus.setOnAction(event -> {
             JSONObject obj=new JSONObject();
             JSONArray jrr=new JSONArray();
-            JSONParser jp=new JSONParser();
-            try{
-                FileReader file= new FileReader("ProductData.json");
-                jrr= (JSONArray)jp.parse(file);
-                file.close();
-            }
-            catch (Exception e){
-
+            try {
+                jrr=UserDataService.OpenFile("ProductData.json");
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             obj.put("Nume produs", produsNume.getText());
             obj.put("Ingrediente", produsIngrediente.getText());
@@ -116,20 +111,28 @@ public class FormularProdusController extends Component {
             obj.put("Pret", produsPret.getText());
             obj.put("Firma",LoginController.retinNume);
             String img;
-            String x=openFileChooser.getSelectedFile().getAbsolutePath();
-            img=encoder(x);
-            obj.put("Imagine",img);
-            obj.put("Locatie:",x);
-            jrr.add(obj);
-            try{
-                FileWriter file=new FileWriter("ProductData.json");
-                file.write(jrr.toJSONString());
-                file.close();
+            try {
+                String x = openFileChooser.getSelectedFile().getAbsolutePath();
+                img=encoder(x);
+                obj.put("Locatie:",x);
+                obj.put("Imagine",img);
+                jrr.add(obj);
+                UserDataService.writeFile(jrr,"ProductData.json");
+                JOptionPane.showMessageDialog(null, "Salvare reusita");
+                try {
+                    inapoiEditare(event);
+                } catch (Exception e) {
+
+                }
             }
-            catch (Exception e){
-                JOptionPane.showMessageDialog(null,"Error occured");
+            catch(NullPointerException ex){
+                JOptionPane.showMessageDialog(null, "Nu ati selectat nici o poza");
+                try {
+                    UserDataService.muta(event,"src/main/resources/formularAddProdus.fxml");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            JOptionPane.showMessageDialog(null, "Salvare reusita");
 
         });
 
