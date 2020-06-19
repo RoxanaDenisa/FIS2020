@@ -4,18 +4,12 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import sample.services.UserDataService;
 
 import javax.swing.*;
-import java.io.File;
 import java.io.FileWriter;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
@@ -68,12 +62,10 @@ public class LoginController {
         JSONArray jrr=new JSONArray();
         try{
         jrr= UserDataService.OpenFile("UserData.json");
-            //registrationMessage.setText("Login successfully!");
         }
 
         catch(Exception e){
             JOptionPane.showMessageDialog(null,"Error occured while fetching");
-            //registrationMessage.setText("Error login!");
         }
         JSONObject obj=new JSONObject();
 
@@ -98,24 +90,13 @@ public class LoginController {
             if (nume.equals(n)&& parola.equals(p)){
                 if(cc==true)
                 {
-                URL url=new File("src/main/resources/additem.fxml").toURI().toURL();
-                Parent home=FXMLLoader.load(url);
-                Scene s=new Scene(home);
-                Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
-                window.setScene(s);
-                window.show();
+                UserDataService.muta(ev,"src/main/resources/additem.fxml");
 
                 }
                 else
                     if(cf==true)
                     {
-                        URL url=new File("src/main/resources/furnizor.fxml").toURI().toURL();
-                        Parent home=FXMLLoader.load(url);
-                        Scene s=new Scene(home);
-                        Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
-                        window.setScene(s);
-                        window.show();
-
+                       UserDataService.muta(ev,"src/main/resources/furnizor.fxml");
                     }
                 break;
             }
@@ -128,7 +109,5 @@ public class LoginController {
         }
 
       initializareCosCumparaturi();
-
-
     }
 }

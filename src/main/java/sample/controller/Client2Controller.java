@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
@@ -14,15 +13,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import sample.services.UserDataService;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.net.URL;
-import java.util.Base64;
 import java.util.ResourceBundle;
 
 
@@ -56,17 +48,9 @@ public class Client2Controller {
        UserDataService.muta(ev,"src/main/resources/clientCosCumparaturi.fxml");
     }
     @FXML
-    void initialize() {
+    void initialize() throws Exception {
         JSONArray jrr=new JSONArray();
-        JSONParser jp=new JSONParser();
-        try{
-            FileReader file= new FileReader("ProductData.json");
-            jrr= (JSONArray)jp.parse(file);
-
-        }
-        catch (Exception e){
-
-        }
+        jrr=UserDataService.OpenFile("ProductData.json");
         int size=jrr.size();
         for(int i=0;i<size;i++){
             VBox v=new VBox();
@@ -78,23 +62,8 @@ public class Client2Controller {
                 String np=(String) j.get("Nume produs");
                 String cant=(String) j.get("Cantitate");
                 String pret=(String) j.get("Pret");
-                byte[] decodedBytes = Base64.getDecoder().decode(p.getBytes());
-                ByteArrayInputStream bis = new ByteArrayInputStream(decodedBytes);
-                BufferedImage bi = null;
-                try {
-                    bi = ImageIO.read(bis);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
                 WritableImage wi = null;
-                if (bi != null) {
-                    wi = new WritableImage(bi.getWidth(), bi.getHeight());
-                    PixelWriter pw = wi.getPixelWriter();
-                    for (int t = 0; t < bi.getWidth(); t++) {
-                        for (int u = 0; u < bi.getHeight(); u++) {
-                            pw.setArgb(t, u, bi.getRGB(t, u));
-                        }
-                    }
+               wi=UserDataService.deodarePoza(p);
                     ImageView imgv = new ImageView(wi);
                     imgv.setFitHeight(100);
                     imgv.setFitWidth(100);
@@ -106,32 +75,21 @@ public class Client2Controller {
                         JSONObject obj=new JSONObject();
                         JSONArray jsn=new JSONArray();
                         JSONParser jsp=new JSONParser();
-                        try{
-                            FileReader fi= new FileReader("cosCumparaturi.json");
-                            jsn= (JSONArray)jsp.parse(fi);
-
-                        }
-                        catch (Exception exc){
-
+                        try {
+                            jsn=UserDataService.OpenFile("cosCumparaturi.json");
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
                         }
                         obj.put("Nume",np );
                         obj.put("Pret",pret);
                         obj.put("Imagine",p);
                         jsn.add(obj);
-                        try{
-                            FileWriter file=new FileWriter("cosCumparaturi.json");
-                            file.write(jsn.toJSONString());
-                            file.close();
-                        }
-                        catch (Exception exc){
-                            JOptionPane.showMessageDialog(null,"Error occured");
-                        }
+                        UserDataService.writeFile(jsn,"cosCumparaturi.json");
                         JOptionPane.showMessageDialog(null, "Produs adaugat in cosul de cumparaturi");
-
                     });
                     v.getChildren().add(c);
                 }
                 client2TP.getChildren().add(v);
             }
             }
-    }}
+    }

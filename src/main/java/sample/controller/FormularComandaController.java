@@ -5,12 +5,9 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import sample.services.UserDataService;
 
 import javax.swing.*;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -44,33 +41,16 @@ public class FormularComandaController {
         UserDataService.muta(ev,"src/main/resources/clientCosCumparaturi.fxml");
     }
     @FXML
-    void finalizareComanda(javafx.event.ActionEvent ev){
+    void finalizareComanda(javafx.event.ActionEvent ev) throws Exception {
         JSONObject obj=new JSONObject();
         JSONArray jrr=new JSONArray();
-        JSONParser jp=new JSONParser();
-        try{
-            FileReader file= new FileReader("Comenzi.json");
-            jrr= (JSONArray)jp.parse(file);
-
-        }
-        catch (Exception e){
-
-        }
+        jrr=UserDataService.OpenFile("Comenzi.json");
         obj.put("Nume Complet", npformular.getText());
         obj.put("Telefon", nrtelformular.getText());
         obj.put("Adresa", adresaformular.getText());
         obj.put("Cod postal", codformular.getText());
         JSONArray jrr2=new JSONArray();
-        JSONParser jp2=new JSONParser();
-        try{
-            FileReader file= new FileReader("cosCumparaturi.json");
-            jrr2= (JSONArray)jp2.parse(file);
-
-        }
-        catch (Exception e){
-
-
-        }
+        jrr2=UserDataService.OpenFile("cosCumparaturi.json");
         String p= "";
         int size2=jrr2.size();
         for (int i=0; i<size2; i++) {
@@ -82,16 +62,9 @@ public class FormularComandaController {
         obj.put("Utilizator", retinNume);
         obj.put("Status"," ");
         jrr.add(obj);
-        try{
-            FileWriter file=new FileWriter("Comenzi.json");
-            file.write(jrr.toJSONString());
-            file.close();
-        }
-        catch (Exception e){
-            JOptionPane.showMessageDialog(null,"Error occured");
-        }
+        UserDataService.writeFile(jrr,"Comenzi.json");
         JOptionPane.showMessageDialog(null, "Comanda s-a finalizat cu succes!");
-
+        UserDataService.muta(ev,"src/main/resources/additem.fxml");
     }
     @FXML
     void initialize() {

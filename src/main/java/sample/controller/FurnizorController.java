@@ -5,7 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import sample.services.UserDataService;
 
 import javax.imageio.ImageIO;
@@ -61,19 +60,10 @@ public class FurnizorController extends Component {
         UserDataService.muta(ev,"src/main/resources/login.fxml");
     }
     @FXML
-    public void selecteazaPoza(ActionEvent ev) {
-        System.out.println("ceva");
+    public void selecteazaPoza(ActionEvent ev) throws Exception {
         JSONObject obj=new JSONObject();
-        JSONArray jrr=new JSONArray();
-        JSONParser jp=new JSONParser();
-        try{
-            FileReader file= new FileReader("LoggoFirme.json");
-            jrr= (JSONArray)jp.parse(file);
-
-        }
-        catch (Exception e){
-
-        }
+        JSONArray jrr;
+        jrr=UserDataService.OpenFile("LoggoFirme.json");
         int returnValue=openFileChooser.showOpenDialog(this);
         if(returnValue== JFileChooser.APPROVE_OPTION){
             try{
@@ -82,17 +72,21 @@ public class FurnizorController extends Component {
                 String img;
                 String x=openFileChooser.getSelectedFile().getAbsolutePath();
                 img=encoder(x);
+                int n=jrr.size();
+                for(int i=0;i<n;i++){
+                    JSONObject o = (JSONObject) jrr.get(i);
+                    String str = (String) o.get("Nume");
+                    if(str.equals(LoginController.retinNume))
+                    {
+                        jrr.remove(i);
+                        UserDataService.writeFile(jrr,"LoggoFirme.json");
+                        break;
+                    }
+                }
                 obj.put("Nume",LoginController.retinNume);
                 obj.put("Imagine",img);
                 jrr.add(obj);
-                try{
-                    FileWriter file=new FileWriter("LoggoFirme.json");
-                    file.write(jrr.toJSONString());
-                    file.close();
-                }
-                catch (Exception e){
-                    JOptionPane.showMessageDialog(null,"Error occured");
-                }
+                UserDataService.writeFile(jrr,"LoggoFirme.json");
             }
             catch (IOException ex)
             {

@@ -9,12 +9,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import sample.Elemente;
 import sample.services.UserDataService;
 
-import java.io.FileReader;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -64,18 +61,11 @@ public class ClientComenziController {
 
     }
     @FXML
-    void initialize() throws IOException {
+    void initialize() throws Exception {
         initCol();
         ObservableList<Elemente> data = FXCollections.observableArrayList();
         JSONArray jrr = new JSONArray();
-        JSONParser jp = new JSONParser();
-        try {
-            FileReader file = new FileReader("Comenzi.json");
-            jrr = (JSONArray) jp.parse(file);
-
-        } catch (Exception e) {
-
-        }
+        jrr=UserDataService.OpenFile("Comenzi.json");
         int size = jrr.size();
         for (int i = 0; i < size; i++) {
             JSONObject x = (JSONObject) jrr.get(i);

@@ -10,8 +10,6 @@ import org.json.simple.parser.JSONParser;
 import sample.services.UserDataService;
 
 import javax.swing.*;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
@@ -72,13 +70,10 @@ public class SignupController {
             JSONObject obj=new JSONObject();
             JSONArray jrr=new JSONArray();
             JSONParser jp=new JSONParser();
-            try{
-                FileReader file= new FileReader("UserData.json");
-                jrr= (JSONArray)jp.parse(file);
-
-            }
-            catch (Exception e){
-
+            try {
+                jrr=UserDataService.OpenFile("UserData.json");
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             obj.put("Nume Complet", SignupNumeComplet.getText());
             obj.put("Nume de utilizator", SignupNumeUtilizator.getText());
@@ -93,14 +88,7 @@ public class SignupController {
             obj.put("Client", SignupCheckClient.isSelected());
             obj.put("Firma", SignUpCheckFirma.isSelected());
             jrr.add(obj);
-            try{
-                FileWriter file=new FileWriter("UserData.json");
-                file.write(jrr.toJSONString());
-                file.close();
-            }
-            catch (Exception e){
-                JOptionPane.showMessageDialog(null,"Error occured");
-            }
+            UserDataService.writeFile(jrr,"UserData.json");
             JOptionPane.showMessageDialog(null, "Inregistrare reusita");
 
         });

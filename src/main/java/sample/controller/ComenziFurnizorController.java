@@ -141,18 +141,11 @@ public class ComenziFurnizorController extends Component {
         colStatFur.setCellValueFactory(new PropertyValueFactory<Items, String>("hb"));
 
     }
-    void modificare(String s,String p,JSONObject o) throws IOException {
+    void modificare(String s,String p,JSONObject o) throws Exception {
 
         {
             JSONArray jrr = new JSONArray();
-            JSONParser jp = new JSONParser();
-            try {
-                FileReader file = new FileReader("Comenzi.json");
-                jrr = (JSONArray) jp.parse(file);
-
-            } catch (Exception e) {
-
-            }
+            jrr=UserDataService.OpenFile("Comenzi.json");
             int size = jrr.size();
             for (int i = 0; i < size; i++) {
                 JSONObject x = (JSONObject) jrr.get(i);
@@ -161,28 +154,18 @@ public class ComenziFurnizorController extends Component {
                 if(n.equals(s)&&pr.equals(p)) {
                     jrr.remove(i);
                     jrr.add(o);
-                    FileWriter file = new FileWriter("Comenzi.json");
-                    file.write(jrr.toJSONString());
-                    file.close();
+                   UserDataService.writeFile(jrr,"Comenzi.json");
                     break;
                 }
             }
         }
     }
     @FXML
-    void initialize() throws IOException {
+    void initialize() throws Exception {
         initCol();
         ObservableList<Items> data = FXCollections.observableArrayList();
-        //data.add(new Items("merge??",new Hyperlink("nuu")));
         JSONArray jrr = new JSONArray();
-        JSONParser jp = new JSONParser();
-        try {
-            FileReader file = new FileReader("Comenzi.json");
-            jrr = (JSONArray) jp.parse(file);
-
-        } catch (Exception e) {
-
-        }
+        jrr=UserDataService.OpenFile("Comenzi.json");
         int size = jrr.size();
         for (int i = 0; i < size; i++) {
             JSONObject x = (JSONObject) jrr.get(i);
@@ -209,9 +192,10 @@ public class ComenziFurnizorController extends Component {
 
                     try {
                         modificare(nc,pr,x);
-                    } catch (IOException ex) {
+                    } catch (Exception ex) {
                         ex.printStackTrace();
                     }
+
                 });
                 Image wi2 = new Image("/assets/No.png");
                 ImageView imgv2 = new ImageView(wi2);
@@ -222,7 +206,7 @@ public class ComenziFurnizorController extends Component {
                           x.put("Status","Comandă respinsă");
                         try {
                             modificare(nc,pr,x);
-                        } catch (IOException ex) {
+                        } catch (Exception ex) {
                             ex.printStackTrace();
                         }
                     });
@@ -244,7 +228,7 @@ public class ComenziFurnizorController extends Component {
                           System.out.println(tr);
                         try {
                             modificare(nc,pr,x);
-                        } catch (IOException ex) {
+                        } catch (Exception ex) {
                             ex.printStackTrace();
                         }
                     });
