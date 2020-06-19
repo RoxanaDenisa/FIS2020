@@ -4,7 +4,8 @@ import org.junit.Test;
 
 import java.security.NoSuchAlgorithmException;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class UserDataServiceTest {
     @Test
@@ -17,6 +18,7 @@ public class UserDataServiceTest {
         assertEquals("afa939adf52ddcbd204c814afcdd754a", UserDataService.hash("daa"));
 
     }
+
 
 
 }

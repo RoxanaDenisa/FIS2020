@@ -4,22 +4,19 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import sample.services.UserDataService;
+
 import javax.swing.*;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.net.URL;
-import java.util.ResourceBundle;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ResourceBundle;
+
+import static sample.services.UserDataService.hash;
 
 public class SignupController {
     @FXML
@@ -65,25 +62,10 @@ public class SignupController {
     }
     @FXML
     private void goBack(javafx.event.ActionEvent ev) throws Exception{
-        URL url=new File("src/main/resources/login.fxml").toURI().toURL();
-        Parent home= FXMLLoader.load(url);
-        Scene s=new Scene(home);
-        Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
-        window.setScene(s);
-        window.show();
+        UserDataService.muta(ev,"src/main/resources/login.fxml");
 
     }
-    public static String hash(String p) throws NoSuchAlgorithmException{
-        MessageDigest md=MessageDigest.getInstance("MD5");
-        md.update(p.getBytes());
-        byte[] b=md.digest();
-        StringBuffer SB=new StringBuffer();
-        for (byte b1:b){
-            SB.append(Integer.toHexString(b1& 0xff).toString());
 
-        }
-        return SB.toString();
-    }
     @FXML
     void initialize() {
         SignupInregistrare.setOnAction(event -> {

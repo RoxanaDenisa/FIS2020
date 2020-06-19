@@ -1,9 +1,17 @@
 package sample.services;
 
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 
+import java.io.File;
 import java.io.FileReader;
+import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -33,6 +41,16 @@ public class UserDataService  {
 
         }
         return SB.toString();
+    }
+    @FXML
+    public static void muta(javafx.event.ActionEvent ev, String st) throws Exception{
+        URL url=new File(st).toURI().toURL();
+        Parent home= FXMLLoader.load(url);
+        Scene s=new Scene(home);
+        Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
+        window.setScene(s);
+        window.show();
+
     }
 
 }

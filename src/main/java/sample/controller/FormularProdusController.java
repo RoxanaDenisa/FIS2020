@@ -4,14 +4,10 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import sample.services.UserDataService;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -62,13 +58,8 @@ public class FormularProdusController extends Component {
     private JFXButton backButton;
 
     @FXML
-    void inapoiEditare(ActionEvent event) throws  Exception {
-        URL url=new File("src/main/resources/furnizorEditareProduse.fxml").toURI().toURL();
-        Parent home= FXMLLoader.load(url);
-        Scene s=new Scene(home);
-        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(s);
-        window.show();
+    void inapoiEditare(ActionEvent ev) throws  Exception {
+        UserDataService.muta(ev,"src/main/resources/furnizorEditareProduse.fxml");
     }
     @FXML
     void openFile(ActionEvent e){

@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import sample.services.UserDataService;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -72,60 +73,20 @@ public class FurnizorProduseController extends Component {
         return base64Image;
     }
     @FXML
-    private void goBack(javafx.event.ActionEvent ev){
-        try {
-            URL url=new File("src/main/resources/furnizor.fxml").toURI().toURL();
-            Parent home= null;
-            home = FXMLLoader.load(url);
-            Scene s=new Scene(home);
-            Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
-            window.setScene(s);
-            window.show();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+    private void goBack(javafx.event.ActionEvent ev) throws Exception {
+        UserDataService.muta(ev,"src/main/resources/furnizor.fxml");
     }
     @FXML
-    private void goVizualizare(javafx.event.ActionEvent ev){
-        try {
-            URL url=new File("src/main/resources/comenziFurnizor.fxml").toURI().toURL();
-            Parent home= null;
-            home = FXMLLoader.load(url);
-            Scene s=new Scene(home);
-            Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
-            window.setScene(s);
-            window.show();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+    private void goVizualizare(javafx.event.ActionEvent ev) throws Exception {
+        UserDataService.muta(ev,"src/main/resources/comenziFurnizor.fxml");
     }
     @FXML
-    private void goEditareProduse(javafx.event.ActionEvent ev){
-        try {
-            URL url=new File("src/main/resources/furnizorEditareProduse.fxml").toURI().toURL();
-            Parent home= null;
-            home = FXMLLoader.load(url);
-            Scene s=new Scene(home);
-            Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
-            window.setScene(s);
-            window.show();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+    private void goEditareProduse(javafx.event.ActionEvent ev) throws Exception {
+       UserDataService.muta(ev,"src/main/resources/furnizorEditareProduse.fxml");
     }
     @FXML
-    private void goFormular(javafx.event.ActionEvent ev){
-        try {
-            URL url=new File("src/main/resources/formularAddProdus.fxml").toURI().toURL();
-            Parent home= null;
-            home = FXMLLoader.load(url);
-            Scene s=new Scene(home);
-            Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
-            window.setScene(s);
-            window.show();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+    private void goFormular(javafx.event.ActionEvent ev) throws Exception {
+        UserDataService.muta(ev,"src/main/resources/formularAddProdus.fxml");
     }
     @FXML
     public void selecteazaPoza(javafx.event.ActionEvent ev) {

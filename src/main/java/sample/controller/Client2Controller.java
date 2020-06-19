@@ -2,10 +2,6 @@ package sample.controller;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelWriter;
@@ -13,15 +9,18 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import sample.services.UserDataService;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Base64;
 import java.util.ResourceBundle;
@@ -44,42 +43,17 @@ public class Client2Controller {
     @FXML
     private TilePane client2TP;
     @FXML
-    private void goComenzi(javafx.event.ActionEvent ev){
-        try {
-            URL url=new File("src/main/resources/ComenziClient.fxml").toURI().toURL();
-            Parent home= null;
-            home = FXMLLoader.load(url);
-            Scene s=new Scene(home);
-            Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
-            window.setScene(s);
-            window.show();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+    private void goComenzi(javafx.event.ActionEvent ev) throws Exception {
+        UserDataService.muta(ev,"src/main/resources/ComenziClient.fxml");
     }
     @FXML
     private void goBack(javafx.event.ActionEvent ev) throws Exception{
-        URL url=new File("src/main/resources/additem.fxml").toURI().toURL();
-        Parent home= FXMLLoader.load(url);
-        Scene s=new Scene(home);
-        Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
-        window.setScene(s);
-        window.show();
+        UserDataService.muta(ev,"src/main/resources/additem.fxml");
 
     }
     @FXML
-    void goCosCumparaturi(javafx.event.ActionEvent ev){
-        try {
-            URL url=new File("src/main/resources/clientCosCumparaturi.fxml").toURI().toURL();
-            Parent home= null;
-            home = FXMLLoader.load(url);
-            Scene s=new Scene(home);
-            Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
-            window.setScene(s);
-            window.show();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+    void goCosCumparaturi(javafx.event.ActionEvent ev) throws Exception {
+       UserDataService.muta(ev,"src/main/resources/clientCosCumparaturi.fxml");
     }
     @FXML
     void initialize() {

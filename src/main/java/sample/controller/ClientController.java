@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import sample.services.UserDataService;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -58,46 +59,16 @@ public class ClientController {
 
     }
     @FXML
-    private void goComenzi(javafx.event.ActionEvent ev){
-        try {
-            URL url=new File("src/main/resources/ComenziClient.fxml").toURI().toURL();
-            Parent home= null;
-            home = FXMLLoader.load(url);
-            Scene s=new Scene(home);
-            Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
-            window.setScene(s);
-            window.show();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+    private void goComenzi(javafx.event.ActionEvent ev) throws Exception {
+        UserDataService.muta(ev,"src/main/resources/ComenziClient.fxml");
     }
     @FXML
-    private void deconectare(javafx.event.ActionEvent ev){
-        try {
-            URL url=new File("src/main/resources/login.fxml").toURI().toURL();
-            Parent home= null;
-            home = FXMLLoader.load(url);
-            Scene s=new Scene(home);
-            Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
-            window.setScene(s);
-            window.show();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+    private void deconectare(javafx.event.ActionEvent ev) throws Exception {
+        UserDataService.muta(ev,"src/main/resources/login.fxml");
     }
     @FXML
-    private void goCosCumparaturi(javafx.event.ActionEvent ev){
-        try {
-            URL url=new File("src/main/resources/clientCosCumparaturi.fxml").toURI().toURL();
-            Parent home= null;
-            home = FXMLLoader.load(url);
-            Scene s=new Scene(home);
-            Stage window=(Stage)((Node)ev.getSource()).getScene().getWindow();
-            window.setScene(s);
-            window.show();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+    private void goCosCumparaturi(javafx.event.ActionEvent ev) throws Exception {
+        UserDataService.muta(ev,"src/main/resources/clientCosCumparaturi.fxml");
     }
     @FXML
     void initialize() {
